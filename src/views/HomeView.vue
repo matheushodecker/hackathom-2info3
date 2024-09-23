@@ -4,10 +4,14 @@ import { RouterView } from 'vue-router'
 <template>
   <div>
     <main>
+      <div class="inicio">  
+          <h1></h1>
+        
+      </div>
       <div class="container">
 
         <div class="item1">
-          <img src="https://via.placeholder.com/600x400" />
+          <img src="../assets/img/image copy.png"/>
           <div>
             <h3>Cidade, Pais</h3>
             <p>tempos em dias</p>
@@ -16,7 +20,7 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item2">
-          <img src="https://via.placeholder.com/600x400" />
+          <img src="../assets/img/image copy 2.png"/>
           <div>
             <h3>Cidade, Pais</h3>
             <p>tempos em dias</p>
@@ -25,7 +29,7 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item3">
-          <img src="https://via.placeholder.com/600x400" />
+          <img src= "../assets/img/image copy 3.png" />
           <div>
             <h3>Cidade, Pais</h3>
             <p>tempos em dias</p>
@@ -34,7 +38,7 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item4">
-          <img src="https://via.placeholder.com/600x400" />
+          <img src="../assets/img/image copy 3.png" />
           <div>
             <h3>Cidade, Pais</h3>
             <p>tempos em dias</p>
@@ -48,6 +52,12 @@ import { RouterView } from 'vue-router'
 </template>
 
 <style>
+.inicio{
+  background-image: url(../assets/img/image.png);
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+}
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -94,5 +104,9 @@ import { RouterView } from 'vue-router'
   grid-template-rows: repeat(1, 1fr);
 border-radius: 30px;
 }
-
-</style>
+img{
+  width: 100%;
+  height : 92% ;
+  align-items: center;
+}
+</style> 
