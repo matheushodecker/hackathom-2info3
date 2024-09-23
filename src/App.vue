@@ -1,85 +1,50 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
 </script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+  <div>
+    <header>
+      <nav class="navbar">
+        <div class="link-container">
+          <a href="/" class="link">Home</a>
+      <a href="Loja" class="link">Loja</a>
+      <a href="/cadastro" class="link">Cadastro</a>
+      <a href="/vendas" class="link">Vendas</a>
+        </div>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <RouterView />
+<RouterView />
+  </div>
 </template>
+<style>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.navbar {
+  background-color: #676767;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 
-nav {
-  width: 100%;
-  font-size: 12px;
+#app {
   text-align: center;
-  margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.link {
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.link:hover {
+  color: black;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.link-container {
+  display: flex;
+  margin-left: auto;
+  margin-right: 100px;
 }
 </style>
