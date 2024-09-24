@@ -78,12 +78,12 @@ h1{
   display: grid;
   grid-template-columns:repeat(3, 1fr) ;
   grid-template-rows: repeat(3, 0.25fr);
-  background-color: rgba(1, 1, 1, 1);  
+  background-color: rgb(24, 24, 24);  
   border: 100px solid rgb(24, 24, 24);
   opacity: 0.7;
   grid-row: 2;
   grid-column: 2;
-    
+
 }
 .inicio {
   display: grid;
