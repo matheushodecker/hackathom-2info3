@@ -51,6 +51,42 @@ import { RouterView } from 'vue-router'
             <p>preço por noite</p>
           </div>
         </div>
+   
+        <div class="item5">
+          <img src="../assets/img/image copy.png" />
+          <div>
+            <h3>Cidade, Pais</h3>
+            <p>tempos em dias</p>
+            <p>preço por noite</p>
+          </div>
+        </div>
+
+        <div class="item6">
+          <img src="../assets/img/image copy 2.png" />
+          <div>
+            <h3>Cidade, Pais</h3>
+            <p>tempos em dias</p>
+            <p>preço por noite</p>
+          </div>
+        </div>
+
+        <div class="item7">
+          <img src="../assets/img/image copy 3.png" />
+          <div>
+            <h3>Cidade, Pais</h3>
+            <p>tempos em dias</p>
+            <p>preço por noite</p>
+          </div>
+        </div>
+
+        <div class="item8">
+          <img src="../assets/img/image copy 3.png" />
+          <div>
+            <h3>Cidade, Pais</h3>
+            <p>tempos em dias</p>
+            <p>preço por noite</p>
+          </div>
+        </div>
       </div>
     </main>
   </div>
@@ -140,6 +176,34 @@ h1{
   grid-template-rows: repeat(1, 1fr);
   border-radius: 30px;
   text-align: left;
+  background-color: transparent;
+}
+.item5,
+.item6 {
+  background-color: #f0f0f0;
+  padding: 20px;
+
+  grid-row: 3;
+  min-height: 100px;
+}
+
+.item7,
+.item8 {
+  background-color: #f0f0f0;
+  padding: 20px;
+  grid-row: 4;
+  min-height: 100px;
+}
+
+.item5,
+.item6,
+.item7,
+.item8 {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  border-radius: 30px;
+  text-align: left;
+  background-color: transparent;
 }
 img {
   width: 100%;
