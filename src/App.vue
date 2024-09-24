@@ -9,7 +9,7 @@ import { RouterView } from 'vue-router'
           <a href="/" class="link">Home</a>
       <a href="Loja" class="link">Loja</a>
       <a href="/cadastro" class="link">Cadastro</a>
-      <a href="/vendas" class="link">Vendas</a>
+      <a href="/vendas" class="link">Login</a>
         </div>
       </nav>
     </header>
