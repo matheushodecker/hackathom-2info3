@@ -2,14 +2,15 @@
 import { RouterView } from 'vue-router'
 </script>
 <template>
+
   <div>
     <header>
       <nav class="navbar">
         <div class="link-container">
           <a href="/" class="link">Home</a>
-      <a href="Loja" class="link">Loja</a>
+      <a href="alugar" class="link">Loja</a>
       <a href="/cadastro" class="link">Cadastro</a>
-      <a href="/vendas" class="link">Login</a>
+      <a href="/Login" class="link">Login</a>
         </div>
       </nav>
     </header>
@@ -40,6 +41,10 @@ import { RouterView } from 'vue-router'
 
 .link:hover {
   color: black;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  padding-right: 20px;
 }
 
 .link-container {
