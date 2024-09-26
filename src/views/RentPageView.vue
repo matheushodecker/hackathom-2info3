@@ -4,11 +4,12 @@ import { RouterView } from 'vue-router'
 <template>
   <div>
     <main>
-      
+      <div class="titulo"><h1>temporada</h1></div>
       <div class="container">
-        <div class="titulo"><h1>temporada</h1></div>
+    
         <div class="item1">
-          <img src="../assets/img/image copy.png" />
+          <a href="/rent"> <img src="../assets/img/image copy.png" /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -19,7 +20,8 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item2">
-          <img src="../assets/img/image copy.png" />
+          <a href="/rent"><img src="../assets/img/image copy.png" /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -30,7 +32,8 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item3">
-          <img src="../assets/img/image copy.png" />
+          <a href="/rent"><img src="../assets/img/image copy.png" /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -41,7 +44,8 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item4">
-          <img src="../assets/img/image copy 3.png" />
+          <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -52,7 +56,8 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item5">
-          <img src="../assets/img/image copy 3.png" />
+          <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -63,7 +68,8 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item6">
-          <img src="../assets/img/image copy 3.png" />
+          <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -74,7 +80,8 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item7">
-          <img src=" ../assets/img/image copy 2.png" />
+          <a href="/rent"><img src=" ../assets/img/image copy 2.png" /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -85,7 +92,10 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item8">
-          <img src=" ../assets/img/image copy 2.png" />
+          <a href="/rent">
+            <img src=" ../assets/img/image copy 2.png"
+          /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -96,7 +106,8 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item9">
-          <img src=" ../assets/img/image copy 2.png" />
+          <a href="/rent"><img src=" ../assets/img/image copy 2.png" /></a>
+
           <div>
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
@@ -112,9 +123,12 @@ import { RouterView } from 'vue-router'
 </template>
 
 <style>
-p{
-   line-height: 10px;
-   grid-row: 3;
+.main{
+  display: inline;
+}
+p {
+  line-height: 10px;
+  grid-row: 3;
 }
 
 h1 {
@@ -123,16 +137,7 @@ h1 {
   grid-row: 1;
   text-align: left;
 }
-.black {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 0.25fr);
-  background-color: rgb(24, 24, 24);
-  border: 100px solid rgb(24, 24, 24);
-  opacity: 0.7;
-  grid-row: 2;
-  grid-column: 2;
-}
+
 .inicio {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
@@ -146,9 +151,8 @@ h1 {
 .titulo {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
- 
 
- padding-left: 20px;
+  padding-left: 20px;
   padding-top: 100px;
   padding-bottom: 100px;
   padding-right: 100px;
@@ -179,7 +183,7 @@ h1 {
   background-color: #f0f0f0;
   padding: 20px;
 
-  grid-row: 2;
+  grid-row: 1;
   min-height: 100px;
 }
 
@@ -188,7 +192,7 @@ h1 {
 .item6 {
   background-color: #f0f0f0;
   padding: 20px;
-  grid-row: 3;
+  grid-row: 2;
   min-height: 100px;
 }
 .item7,
@@ -197,7 +201,7 @@ h1 {
   background-color: #f0f0f0;
   padding: 20px;
 
-  grid-row: 4;
+  grid-row: 3;
   min-height: 100px;
 }
 

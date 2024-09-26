@@ -1,32 +1,32 @@
 <script setup>
 import { RouterView } from 'vue-router'
+
 </script>
 <template>
-
   <div>
     <header>
+
+      
       <nav class="navbar">
         <div class="link-container">
           <a href="/" class="link">Home</a>
-      <a href="alugar" class="link">Loja</a>
-      <a href="/cadastro" class="link">Cadastro</a>
-      <a href="/Login" class="link">Login</a>
+          <a href="alugar" class="link">Loja</a>
+          <a href="/cadastro" class="link">Cadastro</a>
+          <a href="/Login" class="link">Login</a>
         </div>
       </nav>
     </header>
 
-<RouterView />
+    <RouterView />
   </div>
 </template>
 <style>
-
 .navbar {
   background-color: #676767;
   height: 80px;
   display: flex;
   align-items: center;
 }
-
 
 #app {
   text-align: center;
