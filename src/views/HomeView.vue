@@ -243,5 +243,10 @@ img {
   width: 100%;
   height: 92%;
   align-items: center;
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform-origin: center;
+}
+img:hover{
+  transform: scale(1.1);
 }
 </style>
