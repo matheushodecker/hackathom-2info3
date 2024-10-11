@@ -36,13 +36,13 @@
         <label for="sexo">Sexo</label>
         <div class="radio-group">
           <div>
-          <input type="radio" id="masculino" name="sexo" value="masculino" />
-          <label for="masculino">Masculino</label>
-        </div>
-        <div>
-          <input type="radio" id="feminino" name="sexo" value="feminino" />
-          <label for="feminino">Feminino</label>
-        </div>
+            <input type="radio" id="masculino" name="sexo" value="masculino" />
+            <label for="masculino">Masculino</label>
+          </div>
+          <div>
+            <input type="radio" id="feminino" name="sexo" value="feminino" />
+            <label for="feminino">Feminino</label>
+          </div>
         </div>
       </div>
       <button type="submit">Cadastrar</button>
@@ -100,12 +100,12 @@ const handleSignup = async () => {
 </script>
 
 <style scoped>
-.radio-group{
+.radio-group {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .signup-container {
-  background-color: #BCBCBC;
+  background-color: #bcbcbc;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -166,8 +166,6 @@ h1 {
   margin-bottom: 15px;
 }
 
-
-
 input {
   width: 100%;
   padding: 10px;
@@ -175,7 +173,4 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
-
-
 </style>

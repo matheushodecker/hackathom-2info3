@@ -1,86 +1,86 @@
 <template>
-    <div class="voltar">
-      <a href="/alugar"> <img src="../assets/img/icons8-voltar-24.png" alt="voltar" /></a>
+  <div class="voltar">
+    <a href="/alugar"> <img src="../assets/img/icons8-voltar-24.png" alt="voltar" /></a>
+  </div>
+
+  <div class="gridall">
+    <div class="grid">
+      <div class="big-square">foto</div>
+      <div class="small-square">foto</div>
+      <div class="small-square">foto</div>
+      <div class="small-square">foto</div>
+      <div class="small-square">foto</div>
     </div>
-  
-    <div class="gridall">
-      <div class="grid">
-        <div class="big-square">foto</div>
-        <div class="small-square">foto</div>
-        <div class="small-square">foto</div>
-        <div class="small-square">foto</div>
-        <div class="small-square">foto</div>
-      </div>
-    </div>
-  
-    <RouterView />
-    
-    <div class="prevent">
-      <div class="position">
-        <div class="details">
-          <h2>{{ listing.name }}, {{ listing.city }}, {{ listing.country }}</h2>
-          <div class="host">
-            <img src="" alt="Foto do anfitrião" />
-            <span>Anfitriã(ão): {{ listing.hostName }}</span>
-          </div>
-          <div class="booking">
-            <h3>Preço por noite</h3>
-            <div class="dates">
-              <div class="check-in">
-                <label for="check-in">CHECK-IN</label>
-                <input type="date" id="check-in" v-model="checkInDate" />
-              </div>
-              <div class="check-out">
-                <label for="check-out">CHECK-OUT</label>
-                <input type="date" id="check-out" v-model="checkOutDate" />
-              </div>
+  </div>
+
+  <RouterView />
+
+  <div class="prevent">
+    <div class="position">
+      <div class="details">
+        <h2>{{ listing.name }}, {{ listing.city }}, {{ listing.country }}</h2>
+        <div class="host">
+          <img src="" alt="Foto do anfitrião" />
+          <span>Anfitriã(ão): {{ listing.hostName }}</span>
+        </div>
+        <div class="booking">
+          <h3>Preço por noite</h3>
+          <div class="dates">
+            <div class="check-in">
+              <label for="check-in">CHECK-IN</label>
+              <input type="date" id="check-in" v-model="checkInDate" />
             </div>
-            <div class="guests">
-              <label for="guests">HÓSPEDES</label>
-              <select id="guests" v-model.number="numGuests">
-                <option value="1">1 hóspede</option>
-                <option value="2">2 hóspedes</option>
-                <option value="3">3 hóspedes</option>
-                <option value="4">4 hóspedes</option>
-              </select>
+            <div class="check-out">
+              <label for="check-out">CHECK-OUT</label>
+              <input type="date" id="check-out" v-model="checkOutDate" />
             </div>
-            <button @click="bookListing">Reservar</button>
-            <div v-if="message" class="message">{{ message }}</div>
           </div>
+          <div class="guests">
+            <label for="guests">HÓSPEDES</label>
+            <select id="guests" v-model.number="numGuests">
+              <option value="1">1 hóspede</option>
+              <option value="2">2 hóspedes</option>
+              <option value="3">3 hóspedes</option>
+              <option value="4">4 hóspedes</option>
+            </select>
+          </div>
+          <button @click="bookListing">Reservar</button>
+          <div v-if="message" class="message">{{ message }}</div>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        listing: {
-          name: 'Nome da casa',
-          city: 'Cidade',
-          country: 'País',
-          hostName: 'Nome anfitrião',
-        },
-        checkInDate: '',
-        checkOutDate: '',
-        numGuests: 1,
-        message: '' // Adicionando a mensagem aqui
-      }
-    },
-    methods: {
-      bookListing() {
-        // Lógica para reservar a acomodação
-        console.log('Reservando acomodação...');
-        this.message = 'Sua reserva foi realizada com sucesso!'; // Atualiza a mensagem
-      }
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      listing: {
+        name: 'Nome da casa',
+        city: 'Cidade',
+        country: 'País',
+        hostName: 'Nome anfitrião'
+      },
+      checkInDate: '',
+      checkOutDate: '',
+      numGuests: 1,
+      message: '' // Adicionando a mensagem aqui
+    }
+  },
+  methods: {
+    bookListing() {
+      // Lógica para reservar a acomodação
+      console.log('Reservando acomodação...')
+      this.message = 'Sua reserva foi realizada com sucesso!' // Atualiza a mensagem
     }
   }
-  </script>
-  
-  <script setup>
-  import { RouterView } from 'vue-router'
-  </script>
+}
+</script>
+
+<script setup>
+import { RouterView } from 'vue-router'
+</script>
 <style scoped>
 .voltar {
   max-width: 24px;
@@ -94,7 +94,6 @@
   grid-template-columns: 2fr 1fr 1fr 2fr;
   grid-template-rows: repeat(2, 200px);
   gap: 5px;
-    
 }
 .grid {
   grid-column: 2/4;

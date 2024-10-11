@@ -1,12 +1,9 @@
 <script setup>
 import { RouterView } from 'vue-router'
-
 </script>
 <template>
   <div>
     <header>
-
-      
       <nav class="navbar">
         <div class="link-container">
           <a href="/" class="link">Home</a>

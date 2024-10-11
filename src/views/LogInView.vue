@@ -66,7 +66,7 @@ const handleLogin = async () => {
 
 <style scoped>
 .login-container {
-  background-color: #BCBCBC;
+  background-color: #bcbcbc;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -109,5 +109,4 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 </style>

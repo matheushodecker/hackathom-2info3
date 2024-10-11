@@ -125,48 +125,50 @@ import { RouterView } from 'vue-router'
       </div>
     </main>
     <footer>
-    <div >
-      <div class="grid">
-        <div class="item">
-          <h3>Clientes</h3>
-          <p class="espaco">
-            Registre-se e receba todas as novidades, promoções e informações sobre os nossos
-            serviços.
-          </p>
-          <ul class="social-media">
-            <li>
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-            </li>
-          </ul>
-          <p class="espaco">Copyright © 2023 Padaria Grão de Ouro. Todos os direitos reservados.</p>
-        </div>
-        <div class="item">
-          <h3>Recursos</h3>
-          <ul>
-            <li><a href="#">Novidades</a></li>
-            <li><a href="#">Promoções</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </div>
-        <div class="item">
-          <h3>Fale conosco</h3>
-          <p>Digite o seu endereço de email</p>
-          <input class="email" type="email" placeholder="exemplo@email.com" />
-          <button class="btn">Enviar</button>
+      <div>
+        <div class="grid">
+          <div class="item">
+            <h3>Clientes</h3>
+            <p class="espaco">
+              Registre-se e receba todas as novidades, promoções e informações sobre os nossos
+              serviços.
+            </p>
+            <ul class="social-media">
+              <li>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </li>
+            </ul>
+            <p class="espaco">
+              Copyright © 2023 Padaria Grão de Ouro. Todos os direitos reservados.
+            </p>
+          </div>
+          <div class="item">
+            <h3>Recursos</h3>
+            <ul>
+              <li><a href="#">Novidades</a></li>
+              <li><a href="#">Promoções</a></li>
+              <li><a href="#">Serviços</a></li>
+              <li><a href="#">Contato</a></li>
+            </ul>
+          </div>
+          <div class="item">
+            <h3>Fale conosco</h3>
+            <p>Digite o seu endereço de email</p>
+            <input class="email" type="email" placeholder="exemplo@email.com" />
+            <button class="btn">Enviar</button>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
   </div>
   <RouterView />
 </template>
@@ -289,7 +291,7 @@ img {
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   transform-origin: center;
 }
-img:hover{
+img:hover {
   transform: scale(1.1);
 }
 footer {
@@ -334,7 +336,8 @@ footer a {
   color: #fff;
 }
 
-.social-media a:hover {line-height: 10px;
+.social-media a:hover {
+  line-height: 10px;
   color: #ffc107;
 }
 
@@ -351,7 +354,7 @@ input[type='email'] {
   text-align: center;
   padding: 20px;
 }
-.espaco{
- line-height: 20px;
+.espaco {
+  line-height: 20px;
 }
 </style>

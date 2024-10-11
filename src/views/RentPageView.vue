@@ -5,9 +5,9 @@ import { RouterView } from 'vue-router'
   <div>
     <main>
       <div class="titulo">
-        <h1>TEMPORADA</h1></div>
+        <h1>TEMPORADA</h1>
+      </div>
       <div class="container">
-    
         <div class="item1">
           <a href="/rent"> <img src="../assets/img/image copy.png" /></a>
 
@@ -93,9 +93,7 @@ import { RouterView } from 'vue-router'
         </div>
 
         <div class="item8">
-          <a href="/rent">
-            <img src=" ../assets/img/image copy 2.png"
-          /></a>
+          <a href="/rent"> <img src=" ../assets/img/image copy 2.png" /></a>
 
           <div>
             <p>Cidade, Pais</p>
@@ -121,7 +119,7 @@ import { RouterView } from 'vue-router'
     </main>
   </div>
   <footer>
-    <div >
+    <div>
       <div class="grid">
         <div class="item">
           <h3>Clientes</h3>
@@ -143,7 +141,9 @@ import { RouterView } from 'vue-router'
               <a href="#"><i class="fab fa-youtube"></i></a>
             </li>
           </ul>
-          <p class="espaco">Copyright © 2023 Padaria Grão de Ouro. Todos os direitos reservados.</p>
+          <p class="espaco">
+            Copyright © 2023 Padaria Grão de Ouro. Todos os direitos reservados.
+          </p>
         </div>
         <div class="item">
           <h3>Recursos</h3>
@@ -167,7 +167,7 @@ import { RouterView } from 'vue-router'
 </template>
 
 <style>
-.main{
+.main {
   display: inline;
 }
 p {
@@ -186,7 +186,8 @@ h1 {
 .inicio {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 0.1fr 5fr 3fr;line-height: 10px;
+  grid-template-rows: 0.1fr 5fr 3fr;
+  line-height: 10px;
   width: 100%;
   height: 600px;
 }
@@ -268,7 +269,7 @@ img {
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   transform-origin: center;
 }
-img:hover{
+img:hover {
   transform: scale(1.1);
 }
 footer {
@@ -313,7 +314,8 @@ footer a {
   color: #fff;
 }
 
-.social-media a:hover {line-height: 10px;
+.social-media a:hover {
+  line-height: 10px;
   color: #ffc107;
 }
 
@@ -330,7 +332,7 @@ input[type='email'] {
   text-align: center;
   padding: 20px;
 }
-.espaco{
- line-height: 20px;
+.espaco {
+  line-height: 20px;
 }
 </style>
