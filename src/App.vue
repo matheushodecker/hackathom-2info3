@@ -6,10 +6,17 @@ import { RouterView } from 'vue-router'
     <header>
       <nav class="navbar">
         <div class="link-container">
-          <a href="/" class="link">Home</a>
-          <a href="alugar" class="link">Loja</a>
-          <a href="/cadastro" class="link">Cadastro</a>
-          <a href="/Login" class="link">Login</a>
+          <router-link to="/" class="link">Home</router-link>
+          <router-link to="alugar" class="link">Loja</router-link>
+
+
+
+      
+            <router-link to="/cadastro" class="link">Home</router-link>
+      <router-link to="/Login" class="link">Sobre</router-link>
+      <router-link to="/Profile" class="link">perfil</router-link>
+
+
         </div>
       </nav>
     </header>

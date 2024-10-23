@@ -2,111 +2,114 @@
   <div class="login-container">
     <h2>Login</h2>
     <form @submit.prevent="handleLogin">
-      <label for="identifier">Usuário ou E-mail:</label>
-      <input
-        type="text"
-        id="identifier"
-        v-model="identifier"
-        placeholder="Digite seu usuário ou e-mail"
-        required
-      />
-
-      <label for="password">Senha:</label>
-      <input
-        type="password"
-        id="password"
-        v-model="password"
-        placeholder="Digite sua senha"
-        required
-      />
-
+      <input v-model="username" type="text" placeholder="Usuário" required />
+      <input v-model="password" type="password" placeholder="Senha" required />
       <button type="submit">Entrar</button>
     </form>
-
-    <div v-if="message" class="message">{{ message }}</div>
+    <p v-if="error">{{ error }}</p>
+    <p v-if="success" class="success">{{ success }}</p>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
 
-const identifier = ref('') // Para armazenar usuário ou email
-const password = ref('')
-const message = ref('')
+<script>
+import { ref } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+import { useRouter } from 'vue-router';
 
-const handleLogin = async () => {
-  try {
-    // Simulação de chamada de API
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        identifier: identifier.value,
-        password: password.value
-      })
-    })
+export default {
+  setup() {
+    const authStore = useAuthStore();
+    const router = useRouter();
+    const username = ref('');
+    const password = ref('');
+    const error = ref('');
+    const success = ref('');
 
-    const data = await response.json()
-    if (response.ok) {
-      message.value = 'Login realizado com sucesso!'
-      // Limpar campos após o login bem-sucedido
-      identifier.value = ''
-      password.value = ''
-    } else {
-      message.value = `Erro: ${data.message || 'Erro ao realizar o login.'}`
-    }
-  } catch (error) {
-    message.value = 'Erro ao conectar ao servidor.'
-    console.error('Erro:', error)
-  }
-}
+    const handleLogin = async () => {
+      console.log('Tentando logar com:', username.value, password.value);
+      try {
+        await authStore.login(username.value, password.value);
+        success.value = 'Login realizado com sucesso!';
+        error.value = '';
+        router.push('/'); // Redireciona para a página home
+      } catch (err) {
+        error.value = err.message;
+        success.value = ''; // Limpa a mensagem de sucesso em caso de erro
+      }
+    };
+
+    return { username, password, handleLogin, error, success };
+  },
+};
 </script>
 
 <style scoped>
 .login-container {
-  background-color: #bcbcbc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #e9ecef;
   padding: 20px;
+}
+
+h2 {
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+form {
+  background-color: white;
+  padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  margin: auto;
-  margin-top: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
 }
 
-.login-container input {
+input[type="text"],
+input[type="password"] {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #ced4da;
   border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
-.login-container button {
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #007bff;
   border: none;
   color: white;
   border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.login-container button:hover {
+button:hover {
   background-color: #0056b3;
 }
 
-.message {
+p {
   margin-top: 10px;
-  color: #ff0000;
+  color: #dc3545; /* Red for errors */
+  font-size: 14px;
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+.success {
+  color: #28a745; /* Green for success messages */
 }
 </style>
+
