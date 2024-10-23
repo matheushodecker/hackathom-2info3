@@ -28,18 +28,22 @@
       </div>
       <p v-else>Carregando informações do usuário...</p>
       <p v-if="error">{{ error }}</p>
+      <button class="logout" @click="handleLogout">Logout</button>
+
     </div>
   </template>
   
   <script>
   import { computed, ref } from 'vue';
   import { useAuthStore } from '@/stores/auth';
+  import { useRouter } from 'vue-router';
   
   export default {
     setup() {
       const authStore = useAuthStore();
       const user = computed(() => authStore.user);
-      
+      const router = useRouter(); // Importa o router para redirecionar
+  
       const isEditing = ref(false);
       const username = ref(user.value.username);
       const email = ref(user.value.email);
@@ -56,10 +60,16 @@
         }
       };
   
-      return { user, isEditing, username, email, birthDate, handleUpdate, error };
+      const handleLogout = () => {
+        authStore.logout(); // Chama o método de logout da store
+        router.push('/login'); // Redireciona para a página de login
+      };
+  
+      return { user, isEditing, username, email, birthDate, handleUpdate, handleLogout, error };
     },
   };
   </script>
+  
   
   <style scoped>
   .profile {
@@ -106,5 +116,15 @@
     padding: 5px;
     width: 200px;
   }
+
+button.logout {
+  background-color: #dc3545; /* Cor vermelha para logout */
+
+}
+
+button.logout:hover {
+  background-color: #c82333; /* Cor mais escura ao passar o mouse */
+}
+
   </style>
   

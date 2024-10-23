@@ -1,32 +1,49 @@
 <template>
   <div class="signup-container">
-    <h2>Cadastro</h2>
+    <h2>Cadastrar Novo Usuário</h2>
     <form @submit.prevent="handleRegister">
       <input v-model="username" type="text" placeholder="Usuário" required />
       <input v-model="password" type="password" placeholder="Senha" required />
       <input v-model="email" type="email" placeholder="Email" required />
       <input v-model="birthDate" type="date" placeholder="Data de Nascimento" required />
       <input type="file" @change="handleFileUpload" accept="image/*" required />
+
+      <input type="checkbox" id="terms" v-model="termsAccepted" required />
+      <label for="terms">Aceito os <a href="#" @click.prevent="showModal = true">termos de serviço</a></label>
+
       <button type="submit">Cadastrar</button>
     </form>
     <p v-if="error">{{ error }}</p>
+    <p>Já tem uma conta? <router-link to="/login">Faça login</router-link></p>
+
+    <TermsModal
+      :isVisible="showModal"
+      @close="showModal = false"
+      @accept="handleTermsAccepted"
+    />
   </div>
 </template>
-
 
 <script>
 import { ref } from 'vue';
 import { useAuthStore } from '@/stores/auth';
+import { useRouter } from 'vue-router';
+import TermsModal from '@/components/TermsModal.vue'; // Verifique o caminho
 
 export default {
+  components: { TermsModal },
   setup() {
     const authStore = useAuthStore();
+    const router = useRouter();
+
     const username = ref('');
     const password = ref('');
     const email = ref('');
     const birthDate = ref('');
     const profilePicture = ref(null);
     const error = ref('');
+    const showModal = ref(false);
+    const termsAccepted = ref(false);
 
     const handleFileUpload = (event) => {
       const file = event.target.files[0];
@@ -40,17 +57,37 @@ export default {
     };
 
     const handleRegister = async () => {
-  try {
-    await authStore.register(username.value, password.value, email.value, birthDate.value, profilePicture.value);
-    error.value = '';
-    // Redirecionar ou realizar outras ações após o registro
-  } catch (err) {
-    error.value = err.message;
-  }
-};
+      if (!termsAccepted.value) {
+        showModal.value = true; // Mostra o modal se os termos não foram aceitos
+        return;
+      }
+      try {
+        await authStore.register(username.value, password.value, email.value, birthDate.value, profilePicture.value);
+        router.push('/login'); // Redireciona após cadastro
+      } catch (err) {
+        error.value = err.message; // Mostra erro, se houver
+      }
+    };
 
+    const handleTermsAccepted = () => {
+      termsAccepted.value = true; // Define que os termos foram aceitos
+      showModal.value = false; // Fecha o modal
+      handleRegister(); // Tenta registrar novamente
+    };
 
-    return { username, password, email, birthDate, profilePicture, handleFileUpload, handleRegister, error };
+    return { 
+      username, 
+      password, 
+      email, 
+      birthDate, 
+      profilePicture, 
+      handleFileUpload, 
+      handleRegister, 
+      error, 
+      showModal, 
+      handleTermsAccepted, 
+      termsAccepted 
+    };
   },
 };
 </script>
@@ -93,10 +130,6 @@ input[type="file"] {
   font-size: 16px;
 }
 
-input[type="file"] {
-  padding: 5px;
-}
-
 button {
   width: 100%;
   padding: 12px;
@@ -119,4 +152,3 @@ p {
   font-size: 14px;
 }
 </style>
-

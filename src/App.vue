@@ -1,7 +1,14 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import { computed } from 'vue';
+import { useAuthStore } from '@/stores/auth';
+
+const authStore = useAuthStore();
+const isLoggedIn = computed(() => authStore.user !== null); 
 </script>
 <template>
+
+
   <div>
     <header>
       <nav class="navbar">
@@ -12,9 +19,9 @@ import { RouterView } from 'vue-router'
 
 
       
-            <router-link to="/cadastro" class="link">Home</router-link>
-      <router-link to="/Login" class="link">Sobre</router-link>
-      <router-link to="/Profile" class="link">perfil</router-link>
+            <router-link v-if="!isLoggedIn" to="/cadastro" class="link">Home</router-link>
+      <router-link v-if="!isLoggedIn" to="/Login" class="link">Sobre</router-link>
+      <router-link v-if="isLoggedIn" to="/Profile" class="link">perfil</router-link>
 
 
         </div>
