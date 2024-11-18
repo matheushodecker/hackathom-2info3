@@ -122,6 +122,24 @@ import { RouterView } from 'vue-router'
             <p>preço por noite</p>
           </div>
         </div>
+
+        <div class="item9">
+          <img src="../assets/img/image copy 3.png" />
+          <div>
+            <h3>Cidade, Pais</h3>
+            <p>tempos em dias</p>
+            <p>preço por noite</p>
+          </div>
+        </div>
+
+        <div class="item10">
+          <img src="../assets/img/image copy 3.png" />
+          <div>
+            <h3>Cidade, Pais</h3>
+            <p>tempos em dias</p>
+            <p>preço por noite</p>
+          </div>
+        </div>
       </div>
     </main>
     <footer>
@@ -188,7 +206,7 @@ h1 {
   color: #f0f0f0;
   grid-column: 1/3;
   grid-row: 1;
-  text-align: left;
+  text-align: left; 
 }
 .black {
   display: grid;
@@ -274,10 +292,20 @@ h1 {
   min-height: 100px;
 }
 
+.item9,
+.item10{
+  background-color: #f0f0f0;
+  padding: 20px;
+  grid-row: 5;
+  min-height: 100px;
+}
+
 .item5,
 .item6,
 .item7,
-.item8 {
+.item8,
+.item9,
+.item10 {
   display: grid;
   grid-template-rows: repeat(1, 1fr);
   border-radius: 30px;
@@ -356,5 +384,8 @@ input[type='email'] {
 }
 .espaco {
   line-height: 20px;
+}
+.textR{
+  color: #000000;
 }
 </style>

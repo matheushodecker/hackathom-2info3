@@ -19,8 +19,8 @@ const isLoggedIn = computed(() => authStore.user !== null);
 
 
       
-            <router-link v-if="!isLoggedIn" to="/cadastro" class="link">Home</router-link>
-      <router-link v-if="!isLoggedIn" to="/Login" class="link">Sobre</router-link>
+            <router-link v-if="!isLoggedIn" to="/cadastro" class="link">cadastro</router-link>
+      <router-link v-if="!isLoggedIn" to="/Login" class="link">Login</router-link>
       <router-link v-if="isLoggedIn" to="/Profile" class="link">perfil</router-link>
 
 
