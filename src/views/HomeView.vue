@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 </script>
 <template>
-  <div>
+  <div class="background">
     <main>
       <div class="inicio">
         <div class="nada">
@@ -388,4 +388,13 @@ input[type='email'] {
 .textR{
   color: #000000;
 }
+
+.backgrund {
+  background-image: url(../assets/img/image.png);
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
 </style>

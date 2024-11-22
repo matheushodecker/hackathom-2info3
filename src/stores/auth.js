@@ -5,16 +5,16 @@ export const useAuthStore = defineStore('auth', {
     user: null,
     validUsers: [
       {
-        username: 'user1',
-        password: 'password1',
-        email: 'user1@example.com',
+        username: 'admin1',
+        password: 'adminpassword1',
+        email: 'admin1@example.com',
         birthDate: '1990-01-01',
         profilePicture: 'path/to/default/profile.jpg',
       },
       {
-        username: 'user2',
-        password: 'password2',
-        email: 'user2@example.com',
+        username: 'admin2',
+        password: 'adminpassword2',
+        email: 'admin2@example.com',
         birthDate: '1992-02-02',
         profilePicture: 'path/to/default/profile.jpg',
       },
