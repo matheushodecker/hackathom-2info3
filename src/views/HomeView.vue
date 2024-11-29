@@ -15,7 +15,7 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
     longSwipes    
     grabCursor       
     pagination       
-         style="border-right: 10px solid transparent; border-left: 15px solid transparent; border-top: 10px solid transparent; border-bottom: 20px solid transparent;"
+         style="border-right: 10px solid transparent; border-left: 15px solid transparent; border-top: 10px solid transparent; border-bottom: 20px solid transparent; overflow-x: scroll; white-space: nowrap;"
   >
     <!-- Slides -->
     <SwiperSlide>
@@ -54,11 +54,11 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
     longSwipes    
     grabCursor       
     pagination       
-         style="border-right: 10px solid transparent; border-left: 15px solid transparent; border-top: 10px solid transparent; border-bottom: 20px solid transparent;"  
+         style="border-right: 10px solid transparent; border-left: 15px solid transparent; border-top: 10px solid transparent; border-bottom: 20px solid transparent; overflow-x: scroll;  white-space: nowrap;"
        
   >
     <!-- Slides -->
-    <SwiperSlide>
+    <SwiperSlide class="swiper-slide">
       <div class="column-img">Slide 1</div>
     </SwiperSlide>
     <SwiperSlide>
@@ -83,6 +83,14 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
       <div class="column-img">Slide 8</div>
     </SwiperSlide>
   </Swiper>
+
+
+
+
+ <div style="width: 300px; height: 150px; overflow-x: scroll; border: 1px solid #ccc; white-space: nowrap;">
+    Este é um texto de exemplo muito longo para mostrar a barra de rolagem horizontal.
+</div>
+
 </template>
 
 <style>
@@ -128,5 +136,13 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
   margin-bottom: 50px;
   border-radius: 20px;;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.swiper-slide {
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform-origin: center;
+}
+.swiper-slide:hover {
+  transform: scale(2.1);
+
 }
 </style>
