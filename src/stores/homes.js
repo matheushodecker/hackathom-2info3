@@ -1,8 +1,8 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 export const useHomesStore = defineStore('homes', {
   state: () => ({
-    homes: [], // Lista de casas cadastradas
+    homes: [] // Lista de casas cadastradas
   }),
   actions: {
     addHome(address, price, description, imageUrl) {
@@ -11,12 +11,12 @@ export const useHomesStore = defineStore('homes', {
         address,
         price,
         description,
-        imageUrl,
-      };
-      this.homes.push(newHome);
+        imageUrl
+      }
+      this.homes.push(newHome)
     },
     getHomes() {
-      return this.homes;
-    },
-  },
-});
+      return this.homes
+    }
+  }
+})

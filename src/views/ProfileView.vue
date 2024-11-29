@@ -56,11 +56,20 @@
         </p>
         <p>
           <strong>Preço:</strong>
-          <input v-model.number="newHome.price" type="number" placeholder="Digite o preço" required />
+          <input
+            v-model.number="newHome.price"
+            type="number"
+            placeholder="Digite o preço"
+            required
+          />
         </p>
         <p>
           <strong>Descrição:</strong>
-          <textarea v-model="newHome.description" placeholder="Digite a descrição" required></textarea>
+          <textarea
+            v-model="newHome.description"
+            placeholder="Digite a descrição"
+            required
+          ></textarea>
         </p>
         <p>
           <strong>Imagem:</strong>
@@ -76,82 +85,85 @@
         {{ isAddingNewHome ? 'Cancelar' : 'Adicionar Nova Casa' }}
       </button>
     </div>
-
- 
   </div>
 </template>
 
 <script>
-import { computed, ref, onMounted } from "vue";
-import { useAuthStore } from "@/stores/auth";
-import { useHomesStore } from "@/stores/homes";
-import { useRouter } from "vue-router";
+import { computed, ref, onMounted } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import { useHomesStore } from '@/stores/homes'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
-    const authStore = useAuthStore();
-    const homesStore = useHomesStore();
-    const user = computed(() => authStore.user);
-    const router = useRouter();
+    const authStore = useAuthStore()
+    const homesStore = useHomesStore()
+    const user = computed(() => authStore.user)
+    const router = useRouter()
 
-    const isEditing = ref(false);
-    const username = ref(user.value?.username || "");
-    const email = ref(user.value?.email || "");
-    const birthDate = ref(user.value?.birthDate || "");
-    const error = ref("");
+    const isEditing = ref(false)
+    const username = ref(user.value?.username || '')
+    const email = ref(user.value?.email || '')
+    const birthDate = ref(user.value?.birthDate || '')
+    const error = ref('')
 
-    const userHomes = ref([]);
+    const userHomes = ref([])
     const newHome = ref({
-      address: "",
+      address: '',
       price: null,
-      description: "",
-      imageUrl: "",
-    });
+      description: '',
+      imageUrl: ''
+    })
 
-    const isAddingNewHome = ref(false); // Estado para controle do formulário
+    const isAddingNewHome = ref(false) // Estado para controle do formulário
 
     const fetchUserHomes = async () => {
       try {
-        userHomes.value = await homesStore.getUserHomes(user.value.id);
+        userHomes.value = await homesStore.getUserHomes(user.value.id)
       } catch (err) {
-        console.error("Erro ao carregar as casas do usuário:", err.message);
+        console.error('Erro ao carregar as casas do usuário:', err.message)
       }
-    };
+    }
 
     const handleUpdate = async () => {
       try {
-        await authStore.updateProfile(username.value, email.value, birthDate.value, user.value.profilePicture);
-        error.value = "";
-        isEditing.value = false;
+        await authStore.updateProfile(
+          username.value,
+          email.value,
+          birthDate.value,
+          user.value.profilePicture
+        )
+        error.value = ''
+        isEditing.value = false
       } catch (err) {
-        error.value = err.message;
+        error.value = err.message
       }
-    };
+    }
 
     const handleAddHome = async () => {
       try {
-        const home = { ...newHome.value, userId: user.value.id };
-        await homesStore.addHome(home);
-        userHomes.value.push(home); // Atualiza a lista localmente
-        newHome.value = { address: "", price: null, description: "", imageUrl: "" }; // Limpa o formulário
-        isAddingNewHome.value = false; // Fecha o formulário após o envio
+        const home = { ...newHome.value, userId: user.value.id }
+        await homesStore.addHome(home)
+        userHomes.value.push(home) // Atualiza a lista localmente
+        newHome.value = { address: '', price: null, description: '', imageUrl: '' } // Limpa o formulário
+        isAddingNewHome.value = false // Fecha o formulário após o envio
       } catch (err) {
-        console.error("Erro ao cadastrar casa:", err.message);
+        console.error('Erro ao cadastrar casa:', err.message)
       }
-    };
+    }
 
     const toggleAddHomeForm = () => {
-      isAddingNewHome.value = !isAddingNewHome.value; // Alterna a visibilidade do formulário
-    };
+      isAddingNewHome.value = !isAddingNewHome.value // Alterna a visibilidade do formulário
+    }
 
     const handleLogout = () => {
-      authStore.logout();
-      router.push("/login");
-    };
+      authStore.logout()
+      router.push('/login')
+    }
 
     onMounted(() => {
-      fetchUserHomes();
-    });
+      fetchUserHomes()
+    })
 
     return {
       user,
@@ -166,10 +178,10 @@ export default {
       handleUpdate,
       handleAddHome,
       toggleAddHomeForm,
-      handleLogout,
-    };
-  },
-};
+      handleLogout
+    }
+  }
+}
 </script>
 
 <style scoped>

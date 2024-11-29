@@ -270,7 +270,10 @@ img {
   transform-origin: center;
 }
 img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  width: 100%;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
 }
 footer {
   background-color: #676767;

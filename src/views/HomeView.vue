@@ -1,21 +1,25 @@
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue"; // Importa os componentes do Swiper
-import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
+import { Swiper, SwiperSlide } from 'swiper/vue' // Importa os componentes do Swiper
+import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
 </script>
 
-<template >
-  <section id="img">
-
-</section>
+<template>
+  <section id="img"></section>
   <H2 class="txt-inicio">Adicionadas recentemente</H2>
   <Swiper
-    :slides-per-view="5"  
-    :space-between="70" 
-    :loop="false"      
-    longSwipes    
-    grabCursor       
-    pagination       
-         style="border-right: 10px solid transparent; border-left: 15px solid transparent; border-top: 10px solid transparent; border-bottom: 20px solid transparent; overflow-x: scroll; white-space: nowrap;"
+    :slides-per-view="5"
+    :space-between="70"
+    :loop="false"
+    longSwipes
+    grabCursor
+    pagination
+    style="
+      border-right: 10px solid transparent;
+      border-left: 15px solid transparent;
+      border-top: 10px solid transparent;
+      border-bottom: 20px solid transparent;
+      white-space: nowrap;
+    "
   >
     <!-- Slides -->
     <SwiperSlide>
@@ -48,14 +52,19 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
   </Swiper>
   <H2 class="txt-inicio">Adicionadas recentemente</H2>
   <Swiper
-  :slides-per-view="5"  
-    :space-between="70" 
-    :loop="false"      
-    longSwipes    
-    grabCursor       
-    pagination       
-         style="border-right: 10px solid transparent; border-left: 15px solid transparent; border-top: 10px solid transparent; border-bottom: 20px solid transparent; overflow-x: scroll;  white-space: nowrap;"
-       
+    :slides-per-view="5"
+    :space-between="70"
+    :loop="false"
+    longSwipes
+    grabCursor
+    pagination
+    style="
+      border-right: 10px solid transparent;
+      border-left: 15px solid transparent;
+      border-top: 10px solid transparent;
+      border-bottom: 20px solid transparent;
+      white-space: nowrap;
+    "
   >
     <!-- Slides -->
     <SwiperSlide class="swiper-slide">
@@ -84,22 +93,26 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
     </SwiperSlide>
   </Swiper>
 
-
-
-
- <div style="width: 300px; height: 150px; overflow-x: scroll; border: 1px solid #ccc; white-space: nowrap;">
+  <div
+    style="
+      width: 300px;
+      height: 150px;
+      overflow-x: scroll;
+      border: 1px solid #ccc;
+      white-space: nowrap;
+    "
+  >
     Este é um texto de exemplo muito longo para mostrar a barra de rolagem horizontal.
-</div>
-
+  </div>
 </template>
 
 <style>
 .txt-inicio {
-     color: black;
-    margin-top: 50px;
-    margin-left: 135px;
-    font-size: 20pt;
-    font-family: "Libre Bodoni", serif;
+  color: black;
+  margin-top: 50px;
+  margin-left: 135px;
+  font-size: 20pt;
+  font-family: 'Libre Bodoni', serif;
 }
 /* Adicione um pouco de estilo aos slides */
 .column-img {
@@ -115,13 +128,15 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
 }
 .swiper-button-next,
 .swiper-button-prev {
- display: none;
+  display: none;
 }
 
 #img {
   background-image: url(/src/assets/img/casa-de-luxo-7-1.jpg);
   background-size: cover;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   height: 90vh;
 }
 .column {
@@ -130,11 +145,11 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
   justify-content: center;
   margin-top: 20px;
 }
-.column-img{
+.column-img {
   height: 300px;
   width: 300px;
   margin-bottom: 50px;
-  border-radius: 20px;;
+  border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .swiper-slide {
@@ -142,7 +157,9 @@ import "swiper/swiper-bundle.css"; // Importa os estilos do Swiper
   transform-origin: center;
 }
 .swiper-slide:hover {
-  transform: scale(2.1);
-
+  transform: scale(1.1);
+  width: 100%;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
 }
 </style>

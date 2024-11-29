@@ -1,12 +1,11 @@
 <script setup>
-import { computed } from 'vue';
-import { useAuthStore } from '@/stores/auth';
-import { RouterLink } from 'vue-router';
+import { computed } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import { RouterLink } from 'vue-router'
 
-const authStore = useAuthStore();
-const isLoggedIn = computed(() => authStore.user !== null);
-const user = computed(() => authStore.user); // Obtém os dados do usuário
-
+const authStore = useAuthStore()
+const isLoggedIn = computed(() => authStore.user !== null)
+const user = computed(() => authStore.user) // Obtém os dados do usuário
 </script>
 
 <template>
@@ -23,11 +22,11 @@ const user = computed(() => authStore.user); // Obtém os dados do usuário
 
           <!-- Mostrar a foto de perfil como um link para a página de perfil -->
           <router-link v-if="isLoggedIn" to="/Profile" class="profile-link">
-            <img 
-              v-if="user?.profilePicture" 
-              :src="user.profilePicture" 
-              alt="Foto de Perfil" 
-              class="profile-image" 
+            <img
+              v-if="user?.profilePicture"
+              :src="user.profilePicture"
+              alt="Foto de Perfil"
+              class="profile-image"
             />
             <span v-else class="profile-text">Perfil</span>
           </router-link>
