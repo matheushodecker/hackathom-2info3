@@ -119,7 +119,9 @@ export default {
 
     const fetchUserHomes = async () => {
       try {
-        userHomes.value = await homesStore.getUserHomes(user.value.id)
+        if (user.value) {
+          userHomes.value = await homesStore.getUserHomes(user.value.id)
+        }
       } catch (err) {
         console.error('Erro ao carregar as casas do usuário:', err.message)
       }
@@ -144,7 +146,7 @@ export default {
       try {
         const home = { ...newHome.value, userId: user.value.id }
         await homesStore.addHome(home)
-        userHomes.value.push(home) // Atualiza a lista localmente
+        fetchUserHomes()
         newHome.value = { address: '', price: null, description: '', imageUrl: '' } // Limpa o formulário
         isAddingNewHome.value = false // Fecha o formulário após o envio
       } catch (err) {

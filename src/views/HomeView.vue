@@ -106,7 +106,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
   </div>
 </template>
 
-<style>
+<style scoped>
 .txt-inicio {
   color: black;
   margin-top: 50px;

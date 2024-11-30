@@ -5,18 +5,14 @@ export const useHomesStore = defineStore('homes', {
     homes: [] // Lista de casas cadastradas
   }),
   actions: {
-    addHome(address, price, description, imageUrl) {
-      const newHome = {
-        id: this.homes.length + 1,
-        address,
-        price,
-        description,
-        imageUrl
-      }
-      this.homes.push(newHome)
+    async addHome(home) {
+      home.id+this.homes.length + 1
+      this.homes.push(home)
     },
-    getHomes() {
-      return this.homes
+    async getUserHomes(userId) {
+      return this.homes.filter(home => home.userId === userId)
     }
   }
 })
+
+

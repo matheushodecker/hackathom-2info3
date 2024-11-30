@@ -59,13 +59,15 @@ export default {
         showModal.value = true // Mostra o modal se os termos não foram aceitos
         return
       }
+      const defaultProfilePicture = 'https://via.placeholder.com/150'
+      const userProfilePicture = profilePicture.value || defaultProfilePicture
       try {
         await authStore.register(
           username.value,
           password.value,
           email.value,
           birthDate.value,
-          profilePicture.value
+          userProfilePicture
         )
         router.push('/login') // Redireciona após cadastro
       } catch (err) {

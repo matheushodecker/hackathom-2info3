@@ -166,7 +166,7 @@ import { RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style>
+<style scoped>
 .main {
   display: inline;
 }

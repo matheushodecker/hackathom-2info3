@@ -38,7 +38,7 @@ const user = computed(() => authStore.user) // Obtém os dados do usuário
   </div>
 </template>
 
-<style>
+<style scoped>
 .navbar {
   background-color: #676767;
   height: 80px;
