@@ -14,8 +14,7 @@
 
       <button class="CadastrarBotton" type="submit">Cadastrar</button>
       <div>
-        <h3>ja possui conta?<a style="margin: 5px;" href="/Login">Login
-        </a></h3>
+        <h3>ja possui conta?<a style="margin: 5px" href="/Login">Login </a></h3>
       </div>
     </form>
     <TermsModal :isVisible="showModal" @close="showModal = false" @accept="handleTermsAccepted" />
@@ -102,7 +101,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 86.4vh;
+  min-height: 83.8vh;
   background-color: #f4f4f4;
   padding: 20px;
   background-image: url(../assets/img/61003b076a9aa616781477.jpg);
@@ -164,7 +163,7 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-.CadastrarBotton{
+.CadastrarBotton {
   border-radius: 30px;
   font-weight: bold;
 }

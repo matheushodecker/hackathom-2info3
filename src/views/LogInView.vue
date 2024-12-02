@@ -3,10 +3,10 @@
     <form @submit.prevent="handleLogin">
       <h2>Login</h2>
       <input v-model="username" type="text" placeholder="Usuário" required />
-      <input  class="senha" v-model="password" type="password" placeholder="Senha" required />
+      <input class="senha" v-model="password" type="password" placeholder="Senha" required />
       <button class="EntrarBotton" type="submit">Entrar</button>
       <div>
-        <h3>Não possui conta?<a style="margin: 5px;" href="/cadastro">Criar Conta</a></h3>
+        <h3>Não possui conta?<a style="margin: 5px" href="/cadastro">Criar Conta</a></h3>
       </div>
     </form>
     <p v-if="error">{{ error }}</p>
@@ -51,7 +51,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 86.4vh;
+  min-height: 83.8vh;
   padding: 20px;
   border-radius: 14px;
   background-image: url(../assets/img/61003b076a9aa616781477.jpg);
@@ -75,7 +75,6 @@ form {
   margin-left: 60%;
   border-radius: 14px;
 }
-
 
 input[type='text'],
 input[type='password'] {
@@ -110,7 +109,7 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-.EntrarBotton{
+.EntrarBotton {
   border-radius: 30px;
   font-weight: bold;
 }
@@ -124,7 +123,7 @@ p {
 .success {
   color: #28a745; /* Green for success messages */
 }
-h3{
+h3 {
   margin-top: 30px;
 }
 </style>

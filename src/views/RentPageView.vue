@@ -10,20 +10,22 @@ import { RouterView } from 'vue-router'
       <div class="container">
         <div class="item1">
           <a href="/rent"> <img src="../assets/img/image copy.png" /></a>
+            <div>
 
-          <div>
+          <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
             <p>4,8</p>
             <p>R$ 1,200</p>
           </div>
+            </div>
         </div>
 
         <div class="item2">
           <a href="/rent"><img src="../assets/img/image copy.png" /></a>
 
-          <div>
+          <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
@@ -35,7 +37,7 @@ import { RouterView } from 'vue-router'
         <div class="item3">
           <a href="/rent"><img src="../assets/img/image copy.png" /></a>
 
-          <div>
+          <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
@@ -47,7 +49,7 @@ import { RouterView } from 'vue-router'
         <div class="item4">
           <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
 
-          <div>
+          <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
@@ -59,7 +61,7 @@ import { RouterView } from 'vue-router'
         <div class="item5">
           <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
 
-          <div>
+          <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
@@ -71,7 +73,7 @@ import { RouterView } from 'vue-router'
         <div class="item6">
           <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
 
-          <div>
+          <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
@@ -83,7 +85,7 @@ import { RouterView } from 'vue-router'
         <div class="item7">
           <a href="/rent"><img src=" ../assets/img/image copy 2.png" /></a>
 
-          <div>
+          <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
@@ -95,19 +97,21 @@ import { RouterView } from 'vue-router'
         <div class="item8">
           <a href="/rent"> <img src=" ../assets/img/image copy 2.png" /></a>
 
-          <div>
-            <p>Cidade, Pais</p>
+          <div class="descricao">
+            <div class="texto">
+              <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
             <p>4,8</p>
             <p>R$ 1,200</p>
+            </div>
           </div>
         </div>
 
         <div class="item9">
           <a href="/rent"><img src=" ../assets/img/image copy 2.png" /></a>
 
-          <div>
+          <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>
             <p>preço por noite</p>
@@ -173,7 +177,7 @@ import { RouterView } from 'vue-router'
 p {
   line-height: 10px;
   grid-row: 3;
-  margin-right: 20px;
+  margin-top: 8px; 
 }
 
 h1 {
@@ -204,8 +208,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  column-gap: 100px;
-
   padding-left: 100px;
   padding-top: 0px;
   padding-bottom: 100px;
@@ -224,7 +226,7 @@ h1 {
 .item2,
 .item3 {
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 15px;
 
   grid-row: 1;
   min-height: 100px;
@@ -261,19 +263,24 @@ h1 {
   border-radius: 30px;
   text-align: left;
   background-color: transparent;
+  border: 1px solid black;
+  margin: 22px;
+  margin-bottom: 50px;
+  margin-left: 5px;
 }
 img {
-  width: 90%;
-  height: 102%;
+  width: 100%;
+  height: 110%;
   align-items: center;
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   transform-origin: center;
+  position: relative;
+
 }
 img:hover {
   transform: scale(1.05);
-  width: 100%;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
 }
 footer {
   background-color: #676767;
@@ -337,5 +344,21 @@ input[type='email'] {
 }
 .espaco {
   line-height: 20px;
+}
+.descricao{
+  width: 100%;
+  height: 85%;
+  margin-top: 40px;
+  border-radius: 30px;
+  background: transparent;
+  text-align: center;
+  background-color: #888585;
+  opacity: 0.5;
+ 
+}
+.texto{
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
 }
 </style>
