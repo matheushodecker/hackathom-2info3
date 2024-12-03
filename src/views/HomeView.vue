@@ -163,8 +163,13 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
       </div>
     </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 8</div>
-    </SwiperSlide>
+      <div class="card">
+        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Casa de luxo</h3>
+          <p>Preço: $120.000</p>
+        </div>
+      </div>    </SwiperSlide>
 
   </Swiper>
 
@@ -174,9 +179,17 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
 .txt-inicio {
   color: black;
   margin-top: 50px;
-  margin-left: 135px;
+  margin-bottom: 30px;
+  margin-left: 60px;
+  padding: 5px;
   font-size: 20pt;
   font-family: 'Libre Bodoni', serif;
+  background-color: silver;
+  border-radius: 18px;
+  font-weight: bold;
+  width: 24%;
+  text-align: center;
+  
 }
 
 /* Adicione um pouco de estilo aos slides */
