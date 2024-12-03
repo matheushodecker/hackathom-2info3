@@ -15,31 +15,79 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     ">
     <!-- Slides -->
     <SwiperSlide>
-      <div class="column-img">Slide 1</div>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>
     </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 2</div>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>
     </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 3</div>
-    </SwiperSlide>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>    </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 4</div>
-    </SwiperSlide>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>    </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 5</div>
-    </SwiperSlide>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>    </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 6</div>
-    </SwiperSlide>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>    </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 7</div>
-    </SwiperSlide>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>    </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 8</div>
-    </SwiperSlide>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>    </SwiperSlide>
     <SwiperSlide>
-      <div class="column-img">Slide 8</div>
+      <div class="card">
+        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <div class="info">
+          <h3>Apartamento de Luxo</h3>
+          <p>Preço: $1.200.000</p>
+        </div>
+      </div>    
     </SwiperSlide>
   </Swiper>
   <H2 class="txt-inicio">Adicionadas recentemente</H2>
@@ -47,7 +95,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
       border-right: 10px solid transparent;
       border-left: 15px solid transparent;
       border-top: 10px solid transparent;
-      border-bottom: 20px solid transparent;
+      border-bottom: 0 solid transparent;
       white-space: nowrap;
     ">
     <!-- Slides -->
@@ -229,6 +277,7 @@ img {
 }
 
 .info {
+    /* Esconde fora da tela */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -237,10 +286,10 @@ img {
   color: #fff;
   padding: 20px;
   transform: translateY(100%);
-  /* Esconde fora da tela */
   transition: transform 0.3s ease;
   text-align: center;
-
+  border-radius: 15px;
+  width: 87%;
 }
 
 .card:hover .info {
@@ -262,5 +311,9 @@ img {
   margin: 10px 0 0;
   font-size: 14px;
   line-height: 1.4;
+}
+.swiper-slide{
+  overflow: visible;
+  padding: 15px;
 }
 </style>
