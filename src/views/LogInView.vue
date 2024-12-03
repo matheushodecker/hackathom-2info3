@@ -51,13 +51,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 83.8vh;
+  min-height: 95.6vh;
   padding: 20px;
-  border-radius: 14px;
-  background-image: url(../assets/img/61003b076a9aa616781477.jpg);
+  background-image: url(../assets/img/Login.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+  
 }
 
 h2 {

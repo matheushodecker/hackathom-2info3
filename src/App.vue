@@ -16,6 +16,7 @@ const user = computed(() => authStore.user) // Obtém os dados do usuário
           <router-link to="/" class="link">Home</router-link>
           <router-link to="alugar" class="link">Loja</router-link>
 
+
           <!-- Mostrar o link de cadastro e login se o usuário não estiver logado -->
           <router-link v-if="!isLoggedIn" to="/cadastro" class="link">Cadastro</router-link>
           <router-link v-if="!isLoggedIn" to="/Login" class="link">Login</router-link>

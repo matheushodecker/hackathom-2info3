@@ -114,6 +114,7 @@ import { RouterView } from 'vue-router'
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  background-image: url(../assets/img/Pagina.jpg);
 }
 
 .small-square {
