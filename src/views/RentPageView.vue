@@ -11,7 +11,7 @@ import { RouterView } from 'vue-router'
         <div class="item1">
           <a href="/rent"> <img src="../assets/img/image copy.png" /></a>
             <div>
-
+              
           <div class="descricao">
             <p>Cidade, Pais</p>
             <p>tempos em dias</p>

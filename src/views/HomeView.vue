@@ -16,7 +16,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     <!-- Slides -->
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+       <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -25,7 +25,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -34,7 +34,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -42,7 +42,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
       </div>    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -50,7 +50,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
       </div>    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -58,7 +58,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
       </div>    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -66,7 +66,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
       </div>    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -74,7 +74,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
       </div>    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -82,7 +82,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
       </div>    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -101,7 +101,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     <!-- Slides -->
     <SwiperSlide class="swiper-slide">
       <div class="card">
-        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
+       <a href="/alugar"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -110,7 +110,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -119,8 +119,8 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
-        <div class="info">
+        <a href="/alugar"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card"     class="card-img"></a>       
+         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
         </div>
@@ -128,8 +128,8 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
-        <div class="info">
+        <a href="/alugar"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>
+          <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
         </div>
@@ -137,7 +137,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -146,7 +146,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -155,7 +155,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -164,7 +164,7 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img">
+        <a href="/alugar"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
