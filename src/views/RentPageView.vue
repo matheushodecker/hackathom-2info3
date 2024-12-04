@@ -2,31 +2,30 @@
   <div>
     <main>
       <div class="titulo">
-        <H2 class="txt-inicio">recomendacoes de Casa</H2>
+        <h2 class="txt-inicio">Recomendações de Casa</h2>
       </div>
       <div class="grid-container">
         <div class="grid-item" v-for="home in homes" :key="home.id">
-          <div class="card">
-            <a href="/rent">
+          <div v-if="home.imageUrl && home.address" class="card">
+            <router-link :to="{ path: '/rent' }">
               <img :src="home.imageUrl" :alt="home.address" class="card-img" />
-            
-            <div class="info">
-              <h3>{{ home.address.split(',')[0] }}</h3>
-              <p>{{ home.address.split(',').slice(1).join(',').trim() }}</p>
-              <p> 👤4 hóspedes </p>
-              <p>⭐4,8 </p>
-              <p>Preço por noite</p>
-              <p>R$ {{ (home.price / 30).toFixed(2) }}</p>
-            </div>
-          </a>
+              <div class="info">
+                <h3>{{ home.address.split(',')[0] }}</h3>
+                <p>{{ home.address.split(',').slice(1).join(',').trim() }}</p>
+                <p>👤 4 hóspedes</p>
+                <p>⭐ 4,8</p>
+                <p>Preço por noite</p>
+                <p>R$ {{ (home.price / 30).toFixed(2) }}</p>
+              </div>
+            </router-link>
           </div>
         </div>
       </div>
-       
     </main>
     <RouterView />
   </div>
 </template>
+
 
 <script>
 import { useHomesStore } from '@/stores/homes';
@@ -34,19 +33,21 @@ import { ref, onMounted } from 'vue';
 
 export default {
   setup() {
-    const homesStore = useHomesStore();
-    const homes = ref([]);
+    const homesStore = useHomesStore(); // Store do Pinia
+    const homes = ref([]); // Estado local para as casas
 
     onMounted(() => {
-      homes.value = homesStore.getHomes();
+      const fetchedHomes = homesStore.getHomes(); // Obtém as casas do store
+      homes.value = fetchedHomes || []; // Garante que homes seja um array, mesmo se vazio
     });
 
     return {
-      homes
+      homes,
     };
-  }
-}
+  },
+};
 </script>
+
 
 <style scoped>
 .titulo {
