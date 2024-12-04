@@ -1,4 +1,5 @@
 <template>
+  <div class="conteiner">
   <div class="profile">
     <h2>Perfil do Usuário</h2>
     <div class="profile-info" v-if="user">
@@ -30,24 +31,20 @@
     <p v-else>Carregando informações do usuário...</p>
     <p v-if="error">{{ error }}</p>
 
-    <!-- Lista de casas cadastradas -->
-    <div class="user-homes" v-if="userHomes.length">
-      <h3>Casas Cadastradas</h3>
-      <div class="home-list">
-        <div class="home-item" v-for="home in userHomes" :key="home.id">
-          <img :src="home.imageUrl || 'placeholder.jpg'" alt="Imagem da Casa" class="home-image" />
-          <div class="home-info">
-            <p><strong>Endereço:</strong> {{ home.address }}</p>
-            <p><strong>Preço:</strong> R$ {{ home.price.toFixed(2) }}</p>
-            <p><strong>Descrição:</strong> {{ home.description }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p v-else>Você ainda não cadastrou nenhuma casa.</p>
+    
 
-    <!-- Formulário de cadastro de casa -->
-    <div v-if="isAddingNewHome" class="add-home-form">
+    
+
+    
+  </div>
+  <!-- Botão para mostrar/ocultar formulário -->
+    <div class="add-home-button">
+      <button @click="toggleAddHomeForm" :disabled="isAddingNewHome">
+        {{ isAddingNewHome ? 'Cancelar' : 'Adicionar Nova Casa' }}
+      </button>
+    </div>
+<!-- Formulário de cadastro de casa -->
+<div v-if="isAddingNewHome" class="add-home-form">
       <h3>Cadastrar Nova Casa</h3>
       <form @submit.prevent="handleAddHome">
         <p>
@@ -77,13 +74,6 @@
         </p>
         <button type="submit">Cadastrar Casa</button>
       </form>
-    </div>
-
-    <!-- Botão para mostrar/ocultar formulário -->
-    <div class="add-home-button">
-      <button @click="toggleAddHomeForm" :disabled="isAddingNewHome">
-        {{ isAddingNewHome ? 'Cancelar' : 'Adicionar Nova Casa' }}
-      </button>
     </div>
   </div>
 </template>
@@ -185,12 +175,14 @@ export default {
 </script>
 
 <style scoped>
+.conteiner{
+  display: flex;
+  flex-direction: row;
+}
 /* Estilo original */
 .profile {
   padding: 20px;
   text-align: center;
-  position: absolute;
-  position: fixed;
   border: 1.5px solid black;
   width: 30%;
   height: 100%;
@@ -247,10 +239,13 @@ export default {
 .add-home-form {
   margin-top: 30px;
   text-align: left;
+  display: flex;
+  flex-direction: row;
 }
 
 .add-home-button {
-  margin-top: 20px;
+  margin-top: 80px;
+
 }
 
 button {
