@@ -109,14 +109,12 @@ export default {
     });
 
     const isAddingNewHome = ref(false); // Estado para controle do formulário
+    const fetchUserHomes = () => {
+  if (user.value) {
+    userHomes.value = homesStore.getUserHomes(user.value.id); // Busca as casas do usuário
+  }
+};
 
-    const fetchUserHomes = async () => {
-      try {
-        userHomes.value = await homesStore.getUserHomes(user.value.id);
-      } catch (err) {
-        console.error("Erro ao carregar as casas do usuário:", err.message);
-      }
-    };
 
     const handleUpdate = async () => {
       try {
@@ -128,17 +126,14 @@ export default {
       }
     };
 
-    const handleAddHome = async () => {
-      try {
-        const home = { ...newHome.value, userId: user.value.id };
-        await homesStore.addHome(home);
-        userHomes.value.push(home); // Atualiza a lista localmente
-        newHome.value = { address: "", price: null, description: "", imageUrl: "" }; // Limpa o formulário
-        isAddingNewHome.value = false; // Fecha o formulário após o envio
-      } catch (err) {
-        console.error("Erro ao cadastrar casa:", err.message);
-      }
-    };
+    const handleAddHome = () => {
+  const home = { ...newHome.value, userId: user.value.id, id: Date.now() }; // Gera um ID único
+  homesStore.addHome(home); // Adiciona ao Pinia e persiste no localStorage
+  userHomes.value = homesStore.getUserHomes(user.value.id); // Atualiza a lista local
+  newHome.value = { address: "", price: null, description: "", imageUrl: "" }; // Limpa formulário
+  isAddingNewHome.value = false; // Fecha o formulário
+};
+
 
     const toggleAddHomeForm = () => {
       isAddingNewHome.value = !isAddingNewHome.value; // Alterna a visibilidade do formulário
@@ -150,8 +145,10 @@ export default {
     };
 
     onMounted(() => {
-      fetchUserHomes();
-    });
+  homesStore.syncHomesWithLocalStorage(); // Sincroniza com localStorage
+  fetchUserHomes(); // Carrega casas do usuário
+});
+
 
     return {
       user,
