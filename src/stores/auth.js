@@ -23,7 +23,7 @@ export const useAuthStore = defineStore('auth', {
         password: '1',
         email: '1@example.com',
         birthDate: '1992-02-02',
-        profilePicture: 'src/assets/img/image copy 4.png'
+        profilePicture: 'src/assets/img/images.png'
       }
     ]
   }),

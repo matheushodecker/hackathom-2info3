@@ -26,28 +26,26 @@
   </div>
 </template>
 
-
 <script>
-import { useHomesStore } from '@/stores/homes';
-import { ref, onMounted } from 'vue';
+import { useHomesStore } from '@/stores/homes'
+import { ref, onMounted } from 'vue'
 
 export default {
   setup() {
-    const homesStore = useHomesStore(); // Store do Pinia
-    const homes = ref([]); // Estado local para as casas
+    const homesStore = useHomesStore() // Store do Pinia
+    const homes = ref([]) // Estado local para as casas
 
     onMounted(() => {
-      const fetchedHomes = homesStore.getHomes(); // Obtém as casas do store
-      homes.value = fetchedHomes || []; // Garante que homes seja um array, mesmo se vazio
-    });
+      const fetchedHomes = homesStore.getHomes() // Obtém as casas do store
+      homes.value = fetchedHomes || [] // Garante que homes seja um array, mesmo se vazio
+    })
 
     return {
-      homes,
-    };
-  },
-};
+      homes
+    }
+  }
+}
 </script>
-
 
 <style scoped>
 .titulo {
@@ -66,7 +64,6 @@ export default {
   font-weight: bold;
   width: 24%;
   text-align: center;
-  
 }
 
 /* Container do grid */
@@ -83,7 +80,7 @@ export default {
 .grid-item {
   display: flex;
   justify-content: center;
-  row-gap: 200px
+  row-gap: 200px;
 }
 
 /* Card */
@@ -166,4 +163,3 @@ img {
   color: #fff;
 }
 </style>
-

@@ -6,17 +6,27 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
 <template>
   <section id="img"></section>
   <H2 class="txt-inicio">Adicionadas recentemente</H2>
-  <Swiper :slides-per-view="5" :space-between="70" :loop="false" longSwipes grabCursor pagination style="
+  <Swiper
+    :slides-per-view="5"
+    :space-between="70"
+    :loop="false"
+    longSwipes
+    grabCursor
+    pagination
+    style="
       border-right: 10px solid transparent;
       border-left: 15px solid transparent;
       border-top: 10px solid transparent;
       border-bottom: 20px solid transparent;
       white-space: nowrap;
-    ">
+    "
+  >
     <!-- Slides -->
     <SwiperSlide>
       <div class="card">
-       <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -25,7 +35,9 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
@@ -34,74 +46,107 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
         </div>
-      </div>    </SwiperSlide>
+      </div>
+    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
         </div>
-      </div>    </SwiperSlide>
+      </div>
+    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
         </div>
-      </div>    </SwiperSlide>
+      </div>
+    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
         </div>
-      </div>    </SwiperSlide>
+      </div>
+    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
         </div>
-      </div>    </SwiperSlide>
+      </div>
+    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
         </div>
-      </div>    </SwiperSlide>
+      </div>
+    </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img"> </a>
+        <a href="/rent">
+          <img src="\src\assets\img\meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
+        </a>
         <div class="info">
           <h3>Apartamento de Luxo</h3>
           <p>Preço: $1.200.000</p>
         </div>
-      </div>    
+      </div>
     </SwiperSlide>
   </Swiper>
   <H2 class="txt-inicio">Adicionadas recentemente</H2>
-  <Swiper :slides-per-view="5" :space-between="70" :loop="false" longSwipes grabCursor pagination style="
+  <Swiper
+    :slides-per-view="5"
+    :space-between="70"
+    :loop="false"
+    longSwipes
+    grabCursor
+    pagination
+    style="
       border-right: 10px solid transparent;
       border-left: 15px solid transparent;
       border-top: 10px solid transparent;
       border-bottom: 0 solid transparent;
       white-space: nowrap;
-    ">
+    "
+  >
     <!-- Slides -->
     <SwiperSlide class="swiper-slide">
       <div class="card">
-       <a href="/rent"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>
+        <a href="/rent">
+          <img
+            src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+            alt="Imagem do Card"
+            class="card-img"
+        /></a>
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -110,7 +155,12 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
+        <a href="/rent">
+          <img
+            src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+            alt="Imagem do Card"
+            class="card-img"
+        /></a>
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -119,34 +169,12 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card"     class="card-img"></a>       
-         <div class="info">
-          <h3>Casa de luxo</h3>
-          <p>Preço: $120.000</p>
-        </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>
-          <div class="info">
-          <h3>Casa de luxo</h3>
-          <p>Preço: $120.000</p>
-        </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
-        <div class="info">
-          <h3>Casa de luxo</h3>
-          <p>Preço: $120.000</p>
-          </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
+        <a href="/rent">
+          <img
+            src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+            alt="Imagem do Card"
+            class="card-img"
+        /></a>
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -155,7 +183,12 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
+        <a href="/rent">
+          <img
+            src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+            alt="Imagem do Card"
+            class="card-img"
+        /></a>
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
@@ -164,15 +197,61 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
     </SwiperSlide>
     <SwiperSlide>
       <div class="card">
-        <a href="/rent"> <img src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg" alt="Imagem do Card" class="card-img"></a>        
+        <a href="/rent">
+          <img
+            src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+            alt="Imagem do Card"
+            class="card-img"
+        /></a>
         <div class="info">
           <h3>Casa de luxo</h3>
           <p>Preço: $120.000</p>
         </div>
-      </div>    </SwiperSlide>
-
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="card">
+        <a href="/rent">
+          <img
+            src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+            alt="Imagem do Card"
+            class="card-img"
+        /></a>
+        <div class="info">
+          <h3>Casa de luxo</h3>
+          <p>Preço: $120.000</p>
+        </div>
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="card">
+        <a href="/rent">
+          <img
+            src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+            alt="Imagem do Card"
+            class="card-img"
+        /></a>
+        <div class="info">
+          <h3>Casa de luxo</h3>
+          <p>Preço: $120.000</p>
+        </div>
+      </div>
+    </SwiperSlide>
+    <SwiperSlide>
+      <div class="card">
+        <a href="/rent">
+          <img
+            src="\src\assets\img\casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+            alt="Imagem do Card"
+            class="card-img"
+        /></a>
+        <div class="info">
+          <h3>Casa de luxo</h3>
+          <p>Preço: $120.000</p>
+        </div>
+      </div>
+    </SwiperSlide>
   </Swiper>
-
 </template>
 
 <style scoped>
@@ -189,7 +268,6 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
   font-weight: bold;
   width: 24%;
   text-align: center;
-  
 }
 
 /* Adicione um pouco de estilo aos slides */
@@ -243,9 +321,6 @@ import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
 .swiper-slide:hover {
   transform: scale(1.1);
   width: 100%;
-
-
-
 }
 
 img {
@@ -255,8 +330,6 @@ img {
   border-radius: 6.9%;
 }
 
-
-
 .card {
   position: relative;
   width: 300px;
@@ -264,7 +337,9 @@ img {
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   background: #fff;
 }
 
@@ -286,11 +361,10 @@ img {
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
   filter: blur(2px);
-  
 }
 
 .info {
-    /* Esconde fora da tela */
+  /* Esconde fora da tela */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -325,7 +399,7 @@ img {
   font-size: 14px;
   line-height: 1.4;
 }
-.swiper-slide{
+.swiper-slide {
   overflow: visible;
   padding: 15px;
 }

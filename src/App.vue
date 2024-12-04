@@ -16,7 +16,6 @@ const user = computed(() => authStore.user) // Obtém os dados do usuário
           <router-link to="/" class="link">Home</router-link>
           <router-link to="alugar" class="link">Loja</router-link>
 
-
           <!-- Mostrar o link de cadastro e login se o usuário não estiver logado -->
           <router-link v-if="!isLoggedIn" to="/cadastro" class="link">Cadastro</router-link>
           <router-link v-if="!isLoggedIn" to="/Login" class="link">Login</router-link>
@@ -43,14 +42,14 @@ const user = computed(() => authStore.user) // Obtém os dados do usuário
 .navbar {
   background-color: #676767;
   height: 80px;
-  width:100%;
+  width: 100%;
   display: flex;
   align-items: center;
   position: fixed;
-  z-index: 1;
+  z-index: 6;
   box-shadow:
-  rgba(50, 50, 93, 0.25) 0px 20px 60px -12px inset,
-  rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    rgba(50, 50, 93, 0.25) 0px 20px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .link {
@@ -58,6 +57,8 @@ const user = computed(() => authStore.user) // Obtém os dados do usuário
   padding: 10px;
   text-decoration: none;
   transition: 0.3s;
+  margin-top: 4px;
+  margin-right: 10px;
 }
 
 .link:hover {

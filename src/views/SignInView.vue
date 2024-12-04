@@ -109,7 +109,6 @@ export default {
   background-position: center;
   background-size: 100%;
   overflow-y: hidden;
-
 }
 
 h2 {
