@@ -102,12 +102,14 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: #f4f4f4;
-  min-height: 95.6vh;
+  min-height: 95.9vh;
   padding: 20px;
   background-image: url(../assets/img/Login.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+  overflow-y: hidden;
+
 }
 
 h2 {
