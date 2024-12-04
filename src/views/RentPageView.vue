@@ -9,18 +9,20 @@
           <div class="card">
             <a href="/rent">
               <img :src="home.imageUrl" :alt="home.address" class="card-img" />
-            </a>
+            
             <div class="info">
               <h3>{{ home.address.split(',')[0] }}</h3>
               <p>{{ home.address.split(',').slice(1).join(',').trim() }}</p>
-              <p>Tempos em dias</p>
+              <p> 👤4 hóspedes </p>
+              <p>⭐4,8 </p>
               <p>Preço por noite</p>
-              <p>4,8</p>
               <p>R$ {{ (home.price / 30).toFixed(2) }}</p>
             </div>
+          </a>
           </div>
         </div>
       </div>
+       
     </main>
     <RouterView />
   </div>
