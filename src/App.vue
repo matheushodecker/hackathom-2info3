@@ -48,6 +48,9 @@ const user = computed(() => authStore.user) // Obtém os dados do usuário
   align-items: center;
   position: fixed;
   z-index: 1;
+  box-shadow:
+  rgba(50, 50, 93, 0.25) 0px 20px 60px -12px inset,
+  rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .link {

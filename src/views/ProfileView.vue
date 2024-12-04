@@ -189,6 +189,11 @@ export default {
 .profile {
   padding: 20px;
   text-align: center;
+  position: absolute;
+  position: fixed;
+  border: 1.5px solid black;
+  width: 30%;
+  height: 100%;
 }
 
 .profile-info {
@@ -197,13 +202,16 @@ export default {
   justify-content: center;
   margin-top: 20px;
   flex-direction: column;
+  margin-top: 150px;
+  margin-bottom: 90px;
 }
 
 .profile-picture {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 19%;
+  margin-top: 10px;
 }
 
 .info {
@@ -250,9 +258,13 @@ button {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-left: 80px;
+  margin-top: 30px;
+  box-shadow:
+  rgba(50, 50, 93, 0.25) 0px 20px 30px -12px inset,
+  rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
 }
 
 button:disabled {
@@ -262,9 +274,14 @@ button:disabled {
 
 button.logout {
   background-color: #dc3545;
+  margin-left: 20px;
 }
 
 button.logout:hover {
   background-color: #c82333;
+
+}
+p{
+  margin: 22px;
 }
 </style>

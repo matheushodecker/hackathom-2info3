@@ -17,6 +17,13 @@ export const useAuthStore = defineStore('auth', {
         email: 'admin2@example.com',
         birthDate: '1992-02-02',
         profilePicture: 'path/to/default/profile.jpg'
+      },
+      {
+        username: '1',
+        password: '1',
+        email: '1@example.com',
+        birthDate: '1992-02-02',
+        profilePicture: 'src/assets/img/image copy 4.png'
       }
     ]
   }),
