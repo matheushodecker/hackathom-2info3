@@ -51,7 +51,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 95.6vh;
+  min-height: 95.9vh;
   padding: 20px;
   background-image: url(../assets/img/Login.jpg);
   background-repeat: no-repeat;
