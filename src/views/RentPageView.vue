@@ -1,364 +1,166 @@
-<script setup>
-import { RouterView } from 'vue-router'
-</script>
 <template>
   <div>
     <main>
       <div class="titulo">
-        <h1>TEMPORADA</h1>
+        <H2 class="txt-inicio">recomendacoes de Casa</H2>
       </div>
-      <div class="container">
-        <div class="item1">
-          <a href="/rent"> <img src="../assets/img/image copy.png" /></a>
-            <div>
-              
-          <div class="descricao">
-            <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
-          </div>
+      <div class="grid-container">
+        <div class="grid-item" v-for="home in homes" :key="home.id">
+          <div class="card">
+            <a href="/rent">
+              <img :src="home.imageUrl" :alt="home.address" class="card-img" />
+            </a>
+            <div class="info">
+              <h3>{{ home.address.split(',')[0] }}</h3>
+              <p>{{ home.address.split(',').slice(1).join(',').trim() }}</p>
+              <p>Tempos em dias</p>
+              <p>Preço por noite</p>
+              <p>4,8</p>
+              <p>R$ {{ (home.price / 30).toFixed(2) }}</p>
             </div>
-        </div>
-
-        <div class="item2">
-          <a href="/rent"><img src="../assets/img/image copy.png" /></a>
-
-          <div class="descricao">
-            <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
-          </div>
-        </div>
-
-        <div class="item3">
-          <a href="/rent"><img src="../assets/img/image copy.png" /></a>
-
-          <div class="descricao">
-            <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
-          </div>
-        </div>
-
-        <div class="item4">
-          <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
-
-          <div class="descricao">
-            <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
-          </div>
-        </div>
-
-        <div class="item5">
-          <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
-
-          <div class="descricao">
-            <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
-          </div>
-        </div>
-
-        <div class="item6">
-          <a href="/rent"><img src="../assets/img/image copy 3.png" /></a>
-
-          <div class="descricao">
-            <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
-          </div>
-        </div>
-
-        <div class="item7">
-          <a href="/rent"><img src=" ../assets/img/image copy 2.png" /></a>
-
-          <div class="descricao">
-            <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
-          </div>
-        </div>
-
-        <div class="item8">
-          <a href="/rent"> <img src=" ../assets/img/image copy 2.png" /></a>
-
-          <div class="descricao">
-            <div class="texto">
-              <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="item9">
-          <a href="/rent"><img src=" ../assets/img/image copy 2.png" /></a>
-
-          <div class="descricao">
-            <p>Cidade, Pais</p>
-            <p>tempos em dias</p>
-            <p>preço por noite</p>
-            <p>4,8</p>
-            <p>R$ 1,200</p>
           </div>
         </div>
       </div>
     </main>
+    <RouterView />
   </div>
-  <footer>
-    <div>
-      <div class="grid">
-        <div class="item">
-          <h3>Clientes</h3>
-          <p class="espaco">
-            Registre-se e receba todas as novidades, promoções e informações sobre os nossos
-            serviços.
-          </p>
-          <ul class="social-media">
-            <li>
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-            </li>
-          </ul>
-          <p class="espaco">
-            Copyright © 2023 Padaria Grão de Ouro. Todos os direitos reservados.
-          </p>
-        </div>
-        <div class="item">
-          <h3>Recursos</h3>
-          <ul>
-            <li><a href="#">Novidades</a></li>
-            <li><a href="#">Promoções</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </div>
-        <div class="item">
-          <h3>Fale conosco</h3>
-          <p>Digite o seu endereço de email</p>
-          <input class="email" type="email" placeholder="exemplo@email.com" />
-          <button class="btn">Enviar</button>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <RouterView />
 </template>
 
-<style>
-.main {
-  display: inline;
-}
-p {
-  line-height: 10px;
-  grid-row: 3;
-  margin-top: 8px; 
-}
+<script>
+import { useHomesStore } from '@/stores/homes';
+import { ref, onMounted } from 'vue';
 
-h1 {
-  color: #000000;
-  grid-column: 1/3;
-  grid-row: 1;
-  text-align: left;
-}
+export default {
+  setup() {
+    const homesStore = useHomesStore();
+    const homes = ref([]);
 
-.inicio {
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 0.1fr 5fr 3fr;
-  line-height: 10px;
-  width: 100%;
-  height: 600px;
+    onMounted(() => {
+      homes.value = homesStore.getHomes();
+    });
+
+    return {
+      homes
+    };
+  }
 }
+</script>
+
+<style scoped>
 .titulo {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  padding-left: 100px;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  padding-right: 100px;
+  padding-top: 70px;
 }
-.container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  padding-left: 100px;
-  padding-top: 0px;
-  padding-bottom: 100px;
-
-  max-height: 10000px;
+.txt-inicio {
+  color: black;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 60px;
+  padding: 5px;
+  font-size: 20pt;
+  font-family: 'Libre Bodoni', serif;
+  background-color: silver;
+  border-radius: 18px;
+  font-weight: bold;
+  width: 24%;
+  text-align: center;
+  
 }
 
-.navbar {
-  background-color: #676767;
-  height: 80px;
+/* Container do grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  row-gap: 85px;
+  padding: 20px;
+  padding-top: 20px;
+}
+
+/* Estilos para os itens do grid */
+.grid-item {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  row-gap: 200px
 }
 
-.item1,
-.item2,
-.item3 {
-  background-color: #f0f0f0;
-  padding: 15px;
+/* Card */
 
-  grid-row: 1;
-  min-height: 100px;
-}
-
-.item4,
-.item5,
-.item6 {
-  background-color: #f0f0f0;
-  padding: 20px;
-  grid-row: 2;
-  min-height: 100px;
-}
-.item7,
-.item8,
-.item9 {
-  background-color: #f0f0f0;
-  padding: 20px;
-
-  grid-row: 3;
-  min-height: 100px;
-}
-.item1,
-.item2,
-.item3,
-.item4,
-.item5,
-.item6,
-.item7,
-.item8,
-.item9 {
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  border-radius: 30px;
-  text-align: left;
-  background-color: transparent;
-  border: 1px solid black;
-  margin: 22px;
-  margin-bottom: 50px;
-  margin-left: 5px;
-}
 img {
   width: 100%;
-  height: 110%;
-  align-items: center;
-  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  transform-origin: center;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6.9%;
+}
+
+.card {
   position: relative;
-
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  background: #fff;
 }
-img:hover {
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-img:hover {
   transform: scale(1.05);
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
-}
-footer {
-  background-color: #676767;
-  color: #fff;
-  padding: 40px 0;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  filter: blur(2px);
 }
 
-footer .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-footer h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-footer ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-footer li {
-  margin-bottom: 10px;
-}
-
-footer a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.social-media li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.social-media a {
-  font-size: 1.5em;
-  color: #fff;
-}
-
-.social-media a:hover {
-  line-height: 10px;
-  color: #ffc107;
-}
-
-input[type='email'] {
+.info {
+  /* Esconde fora da tela */
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  margin-right: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  border-color: #000000;
-  margin-bottom: 10px;
-}
-
-.item {
-  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
   padding: 20px;
-}
-.espaco {
-  line-height: 20px;
-}
-.descricao{
-  width: 100%;
-  height: 85%;
-  margin-top: 40px;
-  border-radius: 30px;
-  background: transparent;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
   text-align: center;
-  background-color: #888585;
-  opacity: 0.5;
- 
+  border-radius: 15px;
+  width: 87%;
 }
-.texto{
-  font-weight: bold;
-  text-align: center;
-  margin-top: 50px;
+
+.card:hover .info {
+  transform: translateY(0);
+  /* Exibe ao passar o mouse */
+  filter: blur(0px);
+}
+
+.info:hover {
+  filter: blur(0px);
+}
+
+.info h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.info p {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #fff;
 }
 </style>
+
