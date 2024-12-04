@@ -1,5 +1,4 @@
 <template>
-  <div class="conteiner">
   <div class="profile">
     <h2>Perfil do Usuário</h2>
     <div class="profile-info" v-if="user">
@@ -31,20 +30,24 @@
     <p v-else>Carregando informações do usuário...</p>
     <p v-if="error">{{ error }}</p>
 
-    
-
-    
-
-    
-  </div>
-  <!-- Botão para mostrar/ocultar formulário -->
-    <div class="add-home-button">
-      <button @click="toggleAddHomeForm" :disabled="isAddingNewHome">
-        {{ isAddingNewHome ? 'Cancelar' : 'Adicionar Nova Casa' }}
-      </button>
+    <!-- Lista de casas cadastradas -->
+    <div class="user-homes" v-if="userHomes.length">
+      <h3>Casas Cadastradas</h3>
+      <div class="home-list">
+        <div class="home-item" v-for="home in userHomes" :key="home.id">
+          <img :src="home.imageUrl || 'placeholder.jpg'" alt="Imagem da Casa" class="home-image" />
+          <div class="home-info">
+            <p><strong>Endereço:</strong> {{ home.address }}</p>
+            <p><strong>Preço:</strong> R$ {{ home.price.toFixed(2) }}</p>
+            <p><strong>Descrição:</strong> {{ home.description }}</p>
+          </div>
+        </div>
+      </div>
     </div>
-<!-- Formulário de cadastro de casa -->
-<div v-if="isAddingNewHome" class="add-home-form">
+    <p v-else>Você ainda não cadastrou nenhuma casa.</p>
+
+    <!-- Formulário de cadastro de casa -->
+    <div v-if="isAddingNewHome" class="add-home-form">
       <h3>Cadastrar Nova Casa</h3>
       <form @submit.prevent="handleAddHome">
         <p>
@@ -53,20 +56,11 @@
         </p>
         <p>
           <strong>Preço:</strong>
-          <input
-            v-model.number="newHome.price"
-            type="number"
-            placeholder="Digite o preço"
-            required
-          />
+          <input v-model.number="newHome.price" type="number" placeholder="Digite o preço" required />
         </p>
         <p>
           <strong>Descrição:</strong>
-          <textarea
-            v-model="newHome.description"
-            placeholder="Digite a descrição"
-            required
-          ></textarea>
+          <textarea v-model="newHome.description" placeholder="Digite a descrição" required></textarea>
         </p>
         <p>
           <strong>Imagem:</strong>
@@ -75,85 +69,89 @@
         <button type="submit">Cadastrar Casa</button>
       </form>
     </div>
+
+    <!-- Botão para mostrar/ocultar formulário -->
+    <div class="add-home-button">
+      <button @click="toggleAddHomeForm" :disabled="isAddingNewHome">
+        {{ isAddingNewHome ? 'Cancelar' : 'Adicionar Nova Casa' }}
+      </button>
+    </div>
+
+ 
   </div>
 </template>
 
 <script>
-import { computed, ref, onMounted } from 'vue'
-import { useAuthStore } from '@/stores/auth'
-import { useHomesStore } from '@/stores/homes'
-import { useRouter } from 'vue-router'
+import { computed, ref, onMounted } from "vue";
+import { useAuthStore } from "@/stores/auth";
+import { useHomesStore } from "@/stores/homes";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
-    const authStore = useAuthStore()
-    const homesStore = useHomesStore()
-    const user = computed(() => authStore.user)
-    const router = useRouter()
+    const authStore = useAuthStore();
+    const homesStore = useHomesStore();
+    const user = computed(() => authStore.user);
+    const router = useRouter();
 
-    const isEditing = ref(false)
-    const username = ref(user.value?.username || '')
-    const email = ref(user.value?.email || '')
-    const birthDate = ref(user.value?.birthDate || '')
-    const error = ref('')
+    const isEditing = ref(false);
+    const username = ref(user.value?.username || "");
+    const email = ref(user.value?.email || "");
+    const birthDate = ref(user.value?.birthDate || "");
+    const error = ref("");
 
-    const userHomes = ref([])
+    const userHomes = ref([]);
     const newHome = ref({
-      address: '',
+      address: "",
       price: null,
-      description: '',
-      imageUrl: ''
-    })
+      description: "",
+      imageUrl: "",
+    });
 
-    const isAddingNewHome = ref(false) // Estado para controle do formulário
+    const isAddingNewHome = ref(false); // Estado para controle do formulário
 
     const fetchUserHomes = async () => {
       try {
-        userHomes.value = await homesStore.getUserHomes(user.value.id)
+        userHomes.value = await homesStore.getUserHomes(user.value.id);
       } catch (err) {
-        console.error('Erro ao carregar as casas do usuário:', err.message)
+        console.error("Erro ao carregar as casas do usuário:", err.message);
       }
-    }
+    };
 
     const handleUpdate = async () => {
       try {
-        await authStore.updateProfile(
-          username.value,
-          email.value,
-          birthDate.value,
-          user.value.profilePicture
-        )
-        error.value = ''
-        isEditing.value = false
+        await authStore.updateProfile(username.value, email.value, birthDate.value, user.value.profilePicture);
+        error.value = "";
+        isEditing.value = false;
       } catch (err) {
-        error.value = err.message
+        error.value = err.message;
       }
-    }
+    };
 
     const handleAddHome = async () => {
       try {
-        const home = { ...newHome.value, userId: user.value.id }
-        await homesStore.addHome(home)
-        userHomes.value.push(home) // Atualiza a lista localmente
-        newHome.value = { address: '', price: null, description: '', imageUrl: '' } // Limpa o formulário
-        isAddingNewHome.value = false // Fecha o formulário após o envio
+        const home = { ...newHome.value, userId: user.value.id };
+        await homesStore.addHome(home);
+        userHomes.value.push(home); // Atualiza a lista localmente
+        newHome.value = { address: "", price: null, description: "", imageUrl: "" }; // Limpa o formulário
+        isAddingNewHome.value = false; // Fecha o formulário após o envio
       } catch (err) {
-        console.error('Erro ao cadastrar casa:', err.message)
+        console.error("Erro ao cadastrar casa:", err.message);
       }
-    }
+    };
 
     const toggleAddHomeForm = () => {
-      isAddingNewHome.value = !isAddingNewHome.value // Alterna a visibilidade do formulário
-    }
+      isAddingNewHome.value = !isAddingNewHome.value; // Alterna a visibilidade do formulário
+    };
 
     const handleLogout = () => {
-      authStore.logout()
-      router.push('/login')
-    }
+      authStore.logout();
+      router.push("/login");
+    };
 
     onMounted(() => {
-      fetchUserHomes()
-    })
+      fetchUserHomes();
+    });
 
     return {
       user,
@@ -168,24 +166,17 @@ export default {
       handleUpdate,
       handleAddHome,
       toggleAddHomeForm,
-      handleLogout
-    }
-  }
-}
+      handleLogout,
+    };
+  },
+};
 </script>
 
 <style scoped>
-.conteiner{
-  display: flex;
-  flex-direction: row;
-}
 /* Estilo original */
 .profile {
   padding: 20px;
   text-align: center;
-  border: 1.5px solid black;
-  width: 30%;
-  height: 100%;
 }
 
 .profile-info {
@@ -194,16 +185,13 @@ export default {
   justify-content: center;
   margin-top: 20px;
   flex-direction: column;
-  margin-top: 150px;
-  margin-bottom: 90px;
 }
 
 .profile-picture {
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  margin-bottom: 19%;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .info {
@@ -239,13 +227,10 @@ export default {
 .add-home-form {
   margin-top: 30px;
   text-align: left;
-  display: flex;
-  flex-direction: row;
 }
 
 .add-home-button {
-  margin-top: 80px;
-
+  margin-top: 20px;
 }
 
 button {
@@ -253,13 +238,9 @@ button {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
-  margin-left: 80px;
-  margin-top: 30px;
-  box-shadow:
-  rgba(50, 50, 93, 0.25) 0px 20px 30px -12px inset,
-  rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+  margin-right: 10px;
 }
 
 button:disabled {
@@ -269,14 +250,9 @@ button:disabled {
 
 button.logout {
   background-color: #dc3545;
-  margin-left: 20px;
 }
 
 button.logout:hover {
   background-color: #c82333;
-
-}
-p{
-  margin: 22px;
 }
 </style>
