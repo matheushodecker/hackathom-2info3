@@ -2,7 +2,7 @@
   <div class="homes-container">
     <div class="user-homes">
       <h3>Casas Cadastradas</h3>
-      <div class="home-list" v-if="homes.length">
+      <div class="home-list" v-if="homes && homes.length > 0">
         <div class="home-item" v-for="home in homes" :key="home.id">
           <div class="home-images">
             <img v-if="home.foto1" :src="home.foto1" alt="Foto 1" class="home-image" />
@@ -55,7 +55,7 @@ import { useHomesStore } from '@/stores/homes';
 export default {
   setup() {
     const homesStore = useHomesStore();
-    const homes = homesStore.homes;
+    const homes = ref(homesStore.homes); // Garantir que a lista esteja sendo reativa
     const isAddingNewHome = ref(false);
     const newHome = ref({
       address: '',
@@ -67,6 +67,9 @@ export default {
       foto4: '',
       foto5: ''
     });
+
+    // Log para verificar se as casas estão sendo carregadas corretamente
+    console.log("Casas carregadas:", homes.value);
 
     const handleAddHome = () => {
       homesStore.addHome(
@@ -241,5 +244,4 @@ p {
     font-size: 1rem;
   }
 }
-
 </style>
