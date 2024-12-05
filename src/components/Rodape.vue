@@ -40,7 +40,7 @@
   background-color: #000; /* Cor de fundo mais escura */
   color: #fff;
   width: 100%;
-  padding: 3rem 1rem;
+  padding: 3rem 1.5rem;
   font-family: 'Montserrat', sans-serif;
   border: 2px solid #f2c14e;
 }
