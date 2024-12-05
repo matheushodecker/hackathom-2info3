@@ -1,33 +1,45 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'; // Importa os componentes do Swiper
 import 'swiper/swiper-bundle.css'; // Importa os estilos do Swiper
+
+import { computed } from 'vue';
+import { useHomesStore } from '@/stores/homes'; // Importa a store de casas
+
+const homesStore = useHomesStore();
+
+// Computa as casas adicionadas recentemente
+const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máximo 9 casas recentes
+
 </script>
 
 <template>
   <section id="img"></section>
-  <h2 class="txt-inicio">Adicionadas recentemente</h2>
-  <Swiper
-    :slides-per-view="5"
-    :space-between="50"
-    :loop="false"
-    longSwipes
-    grabCursor
-    pagination
-    class="custom-swiper"
-  >
-    <!-- Slides -->
-    <SwiperSlide v-for="n in 9" :key="n">
-      <div class="card">
-        <a href="/rent">
-          <img src="/src/assets/img/meufuturoapt1.png" alt="Imagem do Card" class="card-img" />
-        </a>
-        <div class="info">
-          <h3>Apartamento de Luxo</h3>
-          <p>Preço: $1.200.000</p>
+  <div>
+    <h2 class="txt-inicio">Adicionadas recentemente</h2>
+    <Swiper
+      :slides-per-view="5"
+      :space-between="50"
+      :loop="false"
+      longSwipes
+      grabCursor
+      pagination
+      class="custom-swiper"
+    >
+      <!-- Slides das casas adicionadas -->
+      <SwiperSlide v-for="home in recentHomes" :key="home.id">
+        <div class="card">
+          <!-- Link para detalhes da casa -->
+          <router-link :to="{ path: `/rent/${home.id}` }">
+            <img :src="home.foto1" :alt="home.address" class="card-img" />
+          </router-link>
+          <div class="info">
+            <h3>{{ home.address.split(',')[0] }}</h3>
+            <p>Preço: R$ {{ home.price.toLocaleString() }}</p>
+          </div>
         </div>
-      </div>
-    </SwiperSlide>
-  </Swiper>
+      </SwiperSlide>
+    </Swiper>
+  </div>  
 
   <h2 class="txt-inicio">Casas em destaque</h2>
   <Swiper

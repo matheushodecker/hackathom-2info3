@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SobreNosPage from '../router/SobreNosPage.vue'
 import TermosPage from '../router/TermosPage.vue'
+import RentPageView from '@/views/RentPageView.vue'
+import RentHousePageView from '@/views/RentHousePageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,11 +12,6 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
-    },
-    {
-      path: '/alugar',
-      name: 'alugar',
-      component: () => import('../views/RentPageView.vue')
     },
     {
       path: '/cadastro',
@@ -27,9 +24,15 @@ const router = createRouter({
       component: () => import('../views/LogInView.vue')
     },
     {
-      path: '/Rent',
-      name: 'RentHousePage',
-      component: () => import('../views/RentHousePageView.vue')
+      path: '/rent', // Página principal de casas
+      name: 'Rent',
+      component: RentPageView,
+    },
+    {
+      path: '/rent/:id', // Página de detalhes de uma casa
+      name: 'RentHouse',
+      component: RentHousePageView,
+      props: true,
     },
     {
       path: '/Profile',

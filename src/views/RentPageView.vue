@@ -7,7 +7,8 @@
       <div class="grid-container">
         <div class="grid-item" v-for="home in preHomes" :key="home.id">
           <div v-if="home.foto1 && home.address" class="card">
-            <router-link :to="{ path: '/rent' }" class="router-link">
+            <!-- Atualizado o link para redirecionar para a rota dinâmica -->
+            <router-link :to="{ path: `/rent/${home.id}` }" class="router-link">
               <img :src="home.foto1" :alt="home.address" class="card-img" />
               <div class="info">
                 <h3>{{ home.address.split(',')[0] }}</h3>
@@ -32,11 +33,11 @@ import { ref, onMounted } from 'vue';
 
 export default {
   setup() {
-    const preHomesStore = usePreHomesStore(); // Pinia store para as casas pré-selecionadas
-    const preHomes = ref([]); // Estado local para armazenar as casas
+    const preHomesStore = usePreHomesStore();
+    const preHomes = ref([]);
 
     onMounted(() => {
-      preHomes.value = preHomesStore.preHomes; // Carrega os dados da store
+      preHomes.value = preHomesStore.preHomes;
     });
 
     return {
@@ -45,6 +46,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 /* Título */
