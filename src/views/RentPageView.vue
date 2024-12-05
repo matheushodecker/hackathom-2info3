@@ -7,7 +7,7 @@
       <div class="grid-container">
         <div class="grid-item" v-for="home in preHomes" :key="home.id">
           <div v-if="home.foto1 && home.address" class="card">
-            <router-link :to="{ path: '/rent' }">
+            <router-link :to="{ path: '/rent' }" class="router-link">
               <img :src="home.foto1" :alt="home.address" class="card-img" />
               <div class="info">
                 <h3>{{ home.address.split(',')[0] }}</h3>
@@ -27,46 +27,30 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-import { usePreHomesStore } from '@/stores/preHomes'; // Importa a nova store
-=======
-import { useHomesStore } from '@/stores/homes';
->>>>>>> 4df334268cd92be18d0900d7badc80f0d6469c70
+import { usePreHomesStore } from '@/stores/preHomes';
 import { ref, onMounted } from 'vue';
 
 export default {
   setup() {
-<<<<<<< HEAD
-    const preHomesStore = usePreHomesStore(); // Acessa a nova store do Pinia
-    const preHomes = ref([]); // Estado local para as casas pré-selecionadas
+    const preHomesStore = usePreHomesStore(); // Pinia store para as casas pré-selecionadas
+    const preHomes = ref([]); // Estado local para armazenar as casas
 
     onMounted(() => {
-      preHomes.value = preHomesStore.preHomes; // Obtém as casas pré-selecionadas da store
+      preHomes.value = preHomesStore.preHomes; // Carrega os dados da store
     });
 
     return {
       preHomes,
-=======
-    const homesStore = useHomesStore();
-    const homes = ref([]);
-
-    onMounted(() => {
-      const fetchedHomes = homesStore.getHomes();
-      homes.value = fetchedHomes || [];
-    });
-
-    return {
-      homes,
->>>>>>> 4df334268cd92be18d0900d7badc80f0d6469c70
     };
   },
 };
 </script>
 
 <style scoped>
-/* Texto de introdução */
+/* Título */
 .titulo {
   padding-top: 70px;
+  text-align: center;
 }
 
 .txt-inicio {
@@ -103,7 +87,7 @@ export default {
 .card {
   position: relative;
   width: 340px;
-  height: 620px; /* Aumentado para mais espaço */
+  height: 580px;
   overflow: hidden;
   border-radius: 20px;
   background: #fff;
@@ -118,7 +102,7 @@ export default {
 
 .card-img {
   width: 100%;
-  height: 55%; /* Ajustado para acomodar mais espaço para texto */
+  height: 55%;
   object-fit: cover;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -137,7 +121,7 @@ export default {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: background 0.4s ease;
-  height: 45%; /* Garantido espaço para todos os elementos */
+  height: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,5 +142,9 @@ export default {
   margin: 0;
   font-size: 16px;
   line-height: 1.6;
+}
+
+.router-link {
+  text-decoration: none;
 }
 </style>
