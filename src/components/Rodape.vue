@@ -1,6 +1,18 @@
 <template>
   <div class="rodape">
-    <div class="info">
+    <div class="info">      
+      <div class="contato">
+        <h3>Contato</h3>
+        <p>Telefone: (11) 98765-4321</p>
+        <p>Email: contato@nexthome.com.br</p>
+        <p>Endereço: Rua Exemplo, 123, São Paulo, SP</p>
+      </div>  
+      <div class="redes-sociais">
+          <h3>Redes Sociais</h3>
+          <a href="https://facebook.com/nexthome" class="social-link" target="_blank">Facebook</a>
+          <a href="https://instagram.com/nexthome" class="social-link" target="_blank">Instagram</a>
+          <a href="https://twitter.com/nexthome" class="social-link" target="_blank">Twitter</a>
+        </div>
       <div class="empresa">
         <h3>Empresa</h3>
         <div class="links" id="links-empresa">
@@ -9,17 +21,8 @@
           <RouterLink to="/politica-privacidade" class="link">Política de Privacidade</RouterLink>
         </div>
       </div>
-      <div class="contato">
-        <h3>Contato</h3>
-        <p>Telefone: (11) 98765-4321</p>
-        <p>Email: contato@nexthome.com.br</p>
-        <p>Endereço: Rua Exemplo, 123, São Paulo, SP</p>
-        <div class="redes-sociais">
-          <a href="https://facebook.com/nexthome" class="social-link" target="_blank">Facebook</a>
-          <a href="https://instagram.com/nexthome" class="social-link" target="_blank">Instagram</a>
-          <a href="https://twitter.com/nexthome" class="social-link" target="_blank">Twitter</a>
-        </div>
-      </div>
+
+     
     </div>
     <div class="linha">
       <hr />
@@ -39,9 +42,11 @@
   width: 100%;
   padding: 3rem 1rem;
   font-family: 'Montserrat', sans-serif;
+  border: 2px solid #f2c14e;
 }
 
-.links, .redes-sociais {
+.links,
+.redes-sociais {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -49,20 +54,21 @@
 
 .info {
   display: flex;
-  justify-content: space-between;
+  gap: 500px;
   font-family: 'Montserrat', sans-serif;
+  margin: 5px;
 }
 
 h3 {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #F2C14E; /* Dourado */
+  color: #f2c14e; /* Dourado */
 }
 
 a {
   text-decoration: none;
-  color: #F2C14E; /* Dourado */
+  color: #f2c14e; /* Dourado */
   font-weight: 500;
 }
 
@@ -82,7 +88,7 @@ a:hover {
 }
 
 .social-link {
-  color: #F2C14E;
+  color: #f2c14e;
   text-decoration: none;
 }
 

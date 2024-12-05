@@ -1,15 +1,12 @@
 <script setup>
-
 import Rodape from './components/Rodape.vue'
 import NavBar from './components/NavBar.vue'
-
-
 </script>
 
 <template>
   <div>
     <header>
-     <NavBar />
+      <NavBar />
     </header>
 
     <RouterView />
@@ -19,6 +16,4 @@ import NavBar from './components/NavBar.vue'
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

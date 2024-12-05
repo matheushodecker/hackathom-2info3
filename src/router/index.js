@@ -26,13 +26,13 @@ const router = createRouter({
     {
       path: '/rent', // Página principal de casas
       name: 'Rent',
-      component: RentPageView,
+      component: RentPageView
     },
     {
       path: '/rent/:id', // Página de detalhes de uma casa
       name: 'RentHouse',
       component: RentHousePageView,
-      props: true,
+      props: true
     },
     {
       path: '/Profile',
@@ -42,12 +42,12 @@ const router = createRouter({
     {
       path: '/Sobre',
       name: 'Sobre Nós',
-      component: SobreNosPage,
+      component: SobreNosPage
     },
     {
       path: '/Termos',
       name: 'Termos de Uso',
-      component: TermosPage,
+      component: TermosPage
     }
   ]
 })

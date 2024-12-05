@@ -26,8 +26,12 @@
         <h3>Cadastrar Nova Casa</h3>
         <form @submit.prevent="handleAddHome">
           <p><strong>Endereço:</strong><input v-model="newHome.address" required /></p>
-          <p><strong>Preço:</strong><input v-model.number="newHome.price" type="number" required /></p>
-          <p><strong>Descrição:</strong><textarea v-model="newHome.description" required></textarea></p>
+          <p>
+            <strong>Preço:</strong><input v-model.number="newHome.price" type="number" required />
+          </p>
+          <p>
+            <strong>Descrição:</strong><textarea v-model="newHome.description" required></textarea>
+          </p>
           <p><strong>Imagens:</strong></p>
           <input v-model="newHome.foto1" placeholder="URL da Foto 1" />
           <input v-model="newHome.foto2" placeholder="URL da Foto 2 (opcional)" />
@@ -49,14 +53,14 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { useHomesStore } from '@/stores/homes';
+import { ref } from 'vue'
+import { useHomesStore } from '@/stores/homes'
 
 export default {
   setup() {
-    const homesStore = useHomesStore();
-    const homes = ref(homesStore.homes); // Garantir que a lista esteja sendo reativa
-    const isAddingNewHome = ref(false);
+    const homesStore = useHomesStore()
+    const homes = ref(homesStore.homes) // Garantir que a lista esteja sendo reativa
+    const isAddingNewHome = ref(false)
     const newHome = ref({
       address: '',
       price: 0,
@@ -66,10 +70,10 @@ export default {
       foto3: '',
       foto4: '',
       foto5: ''
-    });
+    })
 
     // Log para verificar se as casas estão sendo carregadas corretamente
-    console.log("Casas carregadas:", homes.value);
+    console.log('Casas carregadas:', homes.value)
 
     const handleAddHome = () => {
       homesStore.addHome(
@@ -81,7 +85,7 @@ export default {
         newHome.value.foto3,
         newHome.value.foto4,
         newHome.value.foto5
-      );
+      )
       newHome.value = {
         address: '',
         price: 0,
@@ -91,20 +95,20 @@ export default {
         foto3: '',
         foto4: '',
         foto5: ''
-      };
-      isAddingNewHome.value = false;
-    };
+      }
+      isAddingNewHome.value = false
+    }
 
     const handleDeleteHome = (homeId) => {
-      const confirmDelete = confirm("Tem certeza que deseja excluir esta casa?");
+      const confirmDelete = confirm('Tem certeza que deseja excluir esta casa?')
       if (confirmDelete) {
-        homesStore.deleteHome(homeId);
+        homesStore.deleteHome(homeId)
       }
-    };
+    }
 
     const toggleAddHomeForm = () => {
-      isAddingNewHome.value = !isAddingNewHome.value;
-    };
+      isAddingNewHome.value = !isAddingNewHome.value
+    }
 
     return {
       homes,
@@ -113,9 +117,9 @@ export default {
       handleAddHome,
       handleDeleteHome,
       toggleAddHomeForm
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -132,7 +136,9 @@ export default {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .home-item:hover {
@@ -168,7 +174,8 @@ export default {
   color: #007bff;
 }
 
-.btn-submit, .btn-toggle {
+.btn-submit,
+.btn-toggle {
   background-color: #007bff;
   color: white;
   border: none;
@@ -179,7 +186,8 @@ export default {
   font-size: 1rem;
 }
 
-.btn-submit:hover, .btn-toggle:hover {
+.btn-submit:hover,
+.btn-toggle:hover {
   background-color: #0056b3;
 }
 

@@ -1,11 +1,11 @@
 <script setup>
-import { computed } from 'vue';
-import { useAuthStore } from '@/stores/auth';
-import { RouterLink } from 'vue-router';
+import { computed } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import { RouterLink } from 'vue-router'
 
-const authStore = useAuthStore();
-const isLoggedIn = computed(() => authStore.user !== null);
-const user = computed(() => authStore.user); // Obtém os dados do usuário
+const authStore = useAuthStore()
+const isLoggedIn = computed(() => authStore.user !== null)
+const user = computed(() => authStore.user) // Obtém os dados do usuário
 </script>
 
 <template>
@@ -14,8 +14,8 @@ const user = computed(() => authStore.user); // Obtém os dados do usuário
       <router-link to="/" class="link">Home</router-link>
       <router-link to="/alugar" class="link">Loja</router-link>
 
-<<<<<<< HEAD
-<nav class="navbar">
+      <<<<<<< HEAD
+      <nav class="navbar">
         <div class="link-container">
           <router-link to="/" class="link">Home</router-link>
           <router-link to="/rent" class="link">Loja</router-link>
@@ -36,13 +36,13 @@ const user = computed(() => authStore.user); // Obtém os dados do usuário
           </router-link>
         </div>
       </nav>
-=======
+      =======
       <!-- Links visíveis somente quando o usuário NÃO está logado -->
       <template v-if="!isLoggedIn">
         <router-link to="/cadastro" class="link">Cadastro</router-link>
         <router-link to="/login" class="link">Login</router-link>
       </template>
->>>>>>> 7f8ca53fff1bc7dbff5d1f56b3d652789f6cb030
+      >>>>>>> 7f8ca53fff1bc7dbff5d1f56b3d652789f6cb030
 
       <!-- Link do perfil visível somente quando o usuário está logado -->
       <template v-if="isLoggedIn">
@@ -86,7 +86,10 @@ const user = computed(() => authStore.user); // Obtém os dados do usuário
   font-weight: 600;
   font-size: 18px; /* Aumenta o tamanho da fonte */
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.2s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    letter-spacing 0.2s ease;
 }
 
 .link:hover {

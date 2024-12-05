@@ -12,7 +12,7 @@
       @update:username="username = $event"
       @update:email="email = $event"
       @update:birthDate="birthDate = $event"
-      @cancelEdit="isEditing = false" 
+      @cancelEdit="isEditing = false"
     />
     <CasasCadastradasComponente
       :userHomes="userHomes"
@@ -25,85 +25,81 @@
 </template>
 
 <script>
-import { computed, ref, onMounted } from 'vue';
-import { useAuthStore } from '@/stores/auth';
-import { useHomesStore } from '@/stores/homes';
-import { useRouter } from 'vue-router';
-import ProfileComponente from '@/components/ProfileComponente.vue';
-import CasasCadastradasComponente from '@/components/CasasCadastradasComponente.vue';
+import { computed, ref, onMounted } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import { useHomesStore } from '@/stores/homes'
+import { useRouter } from 'vue-router'
+import ProfileComponente from '@/components/ProfileComponente.vue'
+import CasasCadastradasComponente from '@/components/CasasCadastradasComponente.vue'
 
 export default {
   components: {
     ProfileComponente,
-    CasasCadastradasComponente,
+    CasasCadastradasComponente
   },
   setup() {
-    const authStore = useAuthStore();
-    const homesStore = useHomesStore();
-    const user = computed(() => authStore.user);
-    const router = useRouter();
+    const authStore = useAuthStore()
+    const homesStore = useHomesStore()
+    const user = computed(() => authStore.user)
+    const router = useRouter()
 
-    const isEditing = ref(false);
-    const username = ref(user.value?.username || '');
-    const email = ref(user.value?.email || '');
-    const birthDate = ref(user.value?.birthDate || '');
-    const error = ref('');
+    const isEditing = ref(false)
+    const username = ref(user.value?.username || '')
+    const email = ref(user.value?.email || '')
+    const birthDate = ref(user.value?.birthDate || '')
+    const error = ref('')
 
-    const userHomes = ref([]);
+    const userHomes = ref([])
     const newHome = ref({
       address: '',
       price: null,
       description: '',
-      imageUrl: '',
-    });
+      imageUrl: ''
+    })
 
-    const isAddingNewHome = ref(false);
+    const isAddingNewHome = ref(false)
 
     const fetchUserHomes = async () => {
       try {
-        userHomes.value = homesStore
-          .getHomes()
-          .filter((home) => home.userId === user.value.id);
+        userHomes.value = homesStore.getHomes().filter((home) => home.userId === user.value.id)
       } catch (err) {
-        console.error('Erro ao carregar as casas do usuário:', err.message);
+        console.error('Erro ao carregar as casas do usuário:', err.message)
       }
-    };
+    }
 
     const handleUpdate = async (username, email, birthDate) => {
       try {
-        await authStore.updateProfile(username, email, birthDate, user.value.profilePicture);
-        error.value = '';
-        isEditing.value = false;
+        await authStore.updateProfile(username, email, birthDate, user.value.profilePicture)
+        error.value = ''
+        isEditing.value = false
       } catch (err) {
-        error.value = err.message;
+        error.value = err.message
       }
-    };
+    }
 
     const handleAddHome = async (home) => {
       try {
-        await homesStore.addHome(home.address, home.price, home.description, home.imageUrl);
-        userHomes.value = homesStore.getHomes().filter(
-          (home) => home.userId === user.value.id
-        );
-        newHome.value = { address: '', price: null, description: '', imageUrl: '' };
-        isAddingNewHome.value = false;
+        await homesStore.addHome(home.address, home.price, home.description, home.imageUrl)
+        userHomes.value = homesStore.getHomes().filter((home) => home.userId === user.value.id)
+        newHome.value = { address: '', price: null, description: '', imageUrl: '' }
+        isAddingNewHome.value = false
       } catch (err) {
-        console.error('Erro ao cadastrar casa:', err.message);
+        console.error('Erro ao cadastrar casa:', err.message)
       }
-    };
+    }
 
     const toggleAddHomeForm = () => {
-      isAddingNewHome.value = !isAddingNewHome.value;
-    };
+      isAddingNewHome.value = !isAddingNewHome.value
+    }
 
     const handleLogout = () => {
-      authStore.logout();
-      router.push('/login');
-    };
+      authStore.logout()
+      router.push('/login')
+    }
 
     onMounted(() => {
-      fetchUserHomes();
-    });
+      fetchUserHomes()
+    })
 
     return {
       user,
@@ -118,10 +114,10 @@ export default {
       handleUpdate,
       handleAddHome,
       toggleAddHomeForm,
-      handleLogout,
-    };
-  },
-};
+      handleLogout
+    }
+  }
+}
 </script>
 
 <style scoped>

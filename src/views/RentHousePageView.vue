@@ -32,7 +32,7 @@
             <h2>{{ house.address }}</h2>
             <div class="host">
               <img src="" alt="Foto do anfitrião" />
-              <span>Anfitriã(ão): {{ house.hostName || "Desconhecido" }}</span>
+              <span>Anfitriã(ão): {{ house.hostName || 'Desconhecido' }}</span>
             </div>
             <div class="booking">
               <h3>Preço: R$ {{ house.price }}</h3>
@@ -50,7 +50,7 @@
                 <label for="guests">HÓSPEDES</label>
                 <select id="guests" v-model.number="numGuests">
                   <option v-for="n in 10" :key="n" :value="n">
-                    {{ n }} hóspede{{ n > 1 ? "s" : "" }}
+                    {{ n }} hóspede{{ n > 1 ? 's' : '' }}
                   </option>
                 </select>
               </div>
@@ -70,34 +70,34 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router';
-import { computed, ref } from 'vue';
-import { usePreHomesStore } from '@/stores/preHomes';
+import { useRoute } from 'vue-router'
+import { computed, ref } from 'vue'
+import { usePreHomesStore } from '@/stores/preHomes'
 
 // Obtemos o parâmetro da rota
-const route = useRoute();
-const preHomesStore = usePreHomesStore();
+const route = useRoute()
+const preHomesStore = usePreHomesStore()
 
 // Computa a casa baseada no ID fornecido pela rota
 const house = computed(() => {
-  const id = parseInt(route.params.id);
-  return preHomesStore.preHomes.find(home => home.id === id);
-});
+  const id = parseInt(route.params.id)
+  return preHomesStore.preHomes.find((home) => home.id === id)
+})
 
 // Estado para gerenciamento de reservas
-const checkInDate = ref('');
-const checkOutDate = ref('');
-const numGuests = ref(1);
-const message = ref('');
+const checkInDate = ref('')
+const checkOutDate = ref('')
+const numGuests = ref(1)
+const message = ref('')
 
 // Função para reservar a casa
 const bookHouse = () => {
   if (!checkInDate.value || !checkOutDate.value) {
-    message.value = 'Por favor, selecione as datas de check-in e check-out.';
-    return;
+    message.value = 'Por favor, selecione as datas de check-in e check-out.'
+    return
   }
-  message.value = 'Sua reserva foi realizada com sucesso!';
-};
+  message.value = 'Sua reserva foi realizada com sucesso!'
+}
 </script>
 
 <style scoped>

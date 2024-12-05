@@ -1,5 +1,5 @@
 <script>
-import SignComponent from '@/components/SigninComponent.vue';
+import SignComponent from '@/components/SigninComponent.vue'
 
 export default {
   components: {
@@ -11,5 +11,3 @@ export default {
 <template>
   <SignComponent />
 </template>
-
-

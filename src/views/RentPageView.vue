@@ -28,27 +28,27 @@
 </template>
 
 <script>
-import { usePreHomesStore } from '@/stores/preHomes';
-import { ref, onMounted } from 'vue';
+import { usePreHomesStore } from '@/stores/preHomes'
+import { ref, onMounted } from 'vue'
 
 export default {
   setup() {
-    const preHomesStore = usePreHomesStore();
-    const preHomes = ref([]);
+    const preHomesStore = usePreHomesStore()
+    const preHomes = ref([])
 
     onMounted(() => {
-      preHomes.value = preHomesStore.preHomes;
-    });
+      preHomes.value = preHomesStore.preHomes
+    })
 
     return {
-      preHomes,
-    };
-  },
-};
+      preHomes
+    }
+  }
+}
 </script>
 
 <style scoped>
-.background{
+.background {
   background-color: #000;
 }
 /* Título */
@@ -64,7 +64,7 @@ export default {
   padding: 20px;
   font-size: 24pt;
   font-family: 'Libre Bodoni', serif;
-  background: #F2C14E; /* Fundo preto */
+  background: #f2c14e; /* Fundo preto */
   border-radius: 25px;
   font-weight: bold;
   text-align: center;
@@ -96,8 +96,10 @@ export default {
   border-radius: 20px;
   background: #000; /* Fundo preto */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border: 3px solid #F2C14E; /* Dourado */
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  border: 3px solid #f2c14e; /* Dourado */
 }
 
 .card:hover {
@@ -121,7 +123,7 @@ export default {
 .info {
   padding: 25px 20px;
   background: rgba(0, 0, 0, 0.8); /* Fundo semitransparente */
-  color: #F2C14E; /* Dourado */
+  color: #f2c14e; /* Dourado */
   text-align: center;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;

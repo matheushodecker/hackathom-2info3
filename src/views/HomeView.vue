@@ -1,21 +1,45 @@
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'; // Importa os componentes do Swiper
-import 'swiper/swiper-bundle.css'; // Importa os estilos do Swiper
+import { Swiper, SwiperSlide } from 'swiper/vue' // Importa os componentes do Swiper
+import 'swiper/swiper-bundle.css' // Importa os estilos do Swiper
 
-import { computed } from 'vue';
-import { useHomesStore } from '@/stores/homes'; // Importa a store de casas
+import { computed } from 'vue'
+import { useHomesStore } from '@/stores/homes' // Importa a store de casas
 
-const homesStore = useHomesStore();
+const homesStore = useHomesStore()
 
 // Computa as casas adicionadas recentemente
-const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máximo 9 casas recentes
+const recentHomes = computed(() => homesStore.homes.slice(-9)) // Exibe no máximo 9 casas recentes
 </script>
 
 <template>
   <div class="background">
-  <section id="img"></section>
-  <div>
-    <h2 class="txt-inicio">Adicionadas recentemente</h2>
+    <section id="img"></section>
+    <div>
+      <h2 class="txt-inicio">Adicionadas recentemente</h2>
+      <Swiper
+        :slides-per-view="5"
+        :space-between="50"
+        :loop="false"
+        longSwipes
+        grabCursor
+        pagination
+        class="custom-swiper"
+      >
+        <SwiperSlide v-for="home in recentHomes" :key="home.id">
+          <div class="card card-recent">
+            <router-link :to="{ path: `/rent/${home.id}` }">
+              <img :src="home.foto1" :alt="home.address" class="card-img" />
+            </router-link>
+            <div class="info">
+              <h3>{{ home.address.split(',')[0] }}</h3>
+              <p>Preço: R$ {{ home.price.toLocaleString() }}</p>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </div>
+
+    <h2 class="txt-inicio">Casas em destaque</h2>
     <Swiper
       :slides-per-view="5"
       :space-between="50"
@@ -25,51 +49,27 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
       pagination
       class="custom-swiper"
     >
-      <SwiperSlide v-for="home in recentHomes" :key="home.id">
-        <div class="card card-recent">
-          <router-link :to="{ path: `/rent/${home.id}` }">
-            <img :src="home.foto1" :alt="home.address" class="card-img" />
-          </router-link>
+      <SwiperSlide v-for="n in 9" :key="n">
+        <div class="card card-featured">
+          <a href="/rent">
+            <img
+              src="/src/assets/img/casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
+              alt="Imagem do Card"
+              class="card-img"
+            />
+          </a>
           <div class="info">
-            <h3>{{ home.address.split(',')[0] }}</h3>
-            <p>Preço: R$ {{ home.price.toLocaleString() }}</p>
+            <h3>Casa de luxo</h3>
+            <p>Preço: $120.000</p>
           </div>
         </div>
       </SwiperSlide>
     </Swiper>
-  </div>  
-
-  <h2 class="txt-inicio">Casas em destaque</h2>
-  <Swiper
-    :slides-per-view="5"
-    :space-between="50"
-    :loop="false"
-    longSwipes
-    grabCursor
-    pagination
-    class="custom-swiper"
-  >
-    <SwiperSlide v-for="n in 9" :key="n">
-      <div class="card card-featured">
-        <a href="/rent">
-          <img
-            src="/src/assets/img/casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
-            alt="Imagem do Card"
-            class="card-img"
-          />
-        </a>
-        <div class="info">
-          <h3>Casa de luxo</h3>
-          <p>Preço: $120.000</p>
-        </div>
-      </div>
-    </SwiperSlide>
-  </Swiper>
-</div>
+  </div>
 </template>
 
 <style scoped>
-.background{
+.background {
   background-color: #000;
 }
 .txt-inicio {
@@ -78,7 +78,7 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   padding: 20px;
   font-size: 24pt;
   font-family: 'Libre Bodoni', serif;
-  background: #F2C14E; /* Fundo preto */
+  background: #f2c14e; /* Fundo preto */
   border-radius: 25px;
   font-weight: bold;
   text-align: center;
@@ -93,7 +93,8 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   position: relative;
 }
 
-.card-recent, .card-featured {
+.card-recent,
+.card-featured {
   position: relative;
   width: 320px;
   height: 380px;
@@ -101,11 +102,14 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   border-radius: 15px;
   background: #000;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  border: 3px solid #F2C14E;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid #f2c14e;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.card-recent:hover, .card-featured:hover {
+.card-recent:hover,
+.card-featured:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
@@ -114,7 +118,7 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-bottom: 4px solid #F2C14E;
+  border-bottom: 4px solid #f2c14e;
 }
 
 .card-img:hover {
@@ -127,14 +131,15 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   left: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
-  color: #F2C14E;
+  color: #f2c14e;
   padding: 20px;
   text-align: center;
   transform: translateY(100%);
   transition: transform 0.3s ease;
 }
 
-.card-recent:hover .info, .card-featured:hover .info {
+.card-recent:hover .info,
+.card-featured:hover .info {
   transform: translateY(0);
 }
 
@@ -142,7 +147,7 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   margin: 0;
   font-size: 22px;
   font-weight: bold;
-  color: #F2C14E;
+  color: #f2c14e;
 }
 
 .info p {
@@ -169,10 +174,10 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
 }
 
 .swiper-pagination-bullet {
-  background: #9B1B30;
+  background: #9b1b30;
 }
 
 .swiper-pagination-bullet-active {
-  background: #F2C14E;
+  background: #f2c14e;
 }
 </style>
