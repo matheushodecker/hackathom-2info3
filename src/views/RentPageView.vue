@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main>
+    <main class="background">
       <div class="titulo">
         <h2 class="txt-inicio">Recomendações de Casas Pré-Selecionadas</h2>
       </div>
@@ -47,25 +47,27 @@ export default {
 };
 </script>
 
-
 <style scoped>
+.background{
+  background-color: #000;
+}
 /* Título */
 .titulo {
   padding-top: 70px;
   text-align: center;
+  background-color: #000;
 }
 
 .txt-inicio {
-  color: #fff;
+  color: #000; /* Dourado */
   margin: 30px auto;
   padding: 20px;
   font-size: 24pt;
   font-family: 'Libre Bodoni', serif;
-  background: linear-gradient(90deg, #355c7d, #6c5b7b, #c06c84);
+  background: #F2C14E; /* Fundo preto */
   border-radius: 25px;
   font-weight: bold;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
   width: fit-content;
 }
 
@@ -75,8 +77,8 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   padding: 40px;
-  background: linear-gradient(180deg, #f7f9fc, #eef2f3);
-  border-radius: 20px;
+  background: #000; /* Fundo preto */
+  border-radius: 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -92,9 +94,10 @@ export default {
   height: 580px;
   overflow: hidden;
   border-radius: 20px;
-  background: #fff;
+  background: #000; /* Fundo preto */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 3px solid #F2C14E; /* Dourado */
 }
 
 .card:hover {
@@ -117,8 +120,8 @@ export default {
 
 .info {
   padding: 25px 20px;
-  background: linear-gradient(180deg, rgba(53, 92, 125, 0.9), rgba(192, 108, 132, 0.9));
-  color: #fff;
+  background: rgba(0, 0, 0, 0.8); /* Fundo semitransparente */
+  color: #F2C14E; /* Dourado */
   text-align: center;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -131,7 +134,7 @@ export default {
 }
 
 .card:hover .info {
-  background: linear-gradient(180deg, rgba(53, 92, 125, 1), rgba(192, 108, 132, 1));
+  background: rgba(0, 0, 0, 1); /* Fundo preto ao passar o mouse */
 }
 
 .info h3 {
