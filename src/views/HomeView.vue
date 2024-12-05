@@ -75,14 +75,14 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
 .txt-inicio {
   color: #fff;
   margin: 30px 0;
-  padding: 15px;
-  font-size: 22pt;
+  padding: 20px;
+  font-size: 26pt;
   font-family: 'Libre Bodoni', serif;
   background: linear-gradient(90deg, #3a6186, #89253e);
-  border-radius: 30px;
+  border-radius: 35px;
   font-weight: bold;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Fundo da seção de imagem */
@@ -90,7 +90,6 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   background-image: url(/src/assets/img/casa-de-luxo-7-1.jpg);
   background-size: cover;
   background-position: center;
-  box-shadow: rgba(0, 0, 0, 0.7) 0px 30px 60px inset;
   height: 90vh;
   position: relative;
 }
@@ -98,29 +97,29 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
 /* Estilizando os cartões */
 .card {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 320px; /* Aumenta o tamanho dos cartões */
+  height: 380px; /* Aumenta a altura das imagens */
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 15px;
   background: #fff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px); /* Eleva o card suavemente */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
 .card-img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Aumenta a imagem de forma suave ao passar o mouse */
 }
 
 .info {
@@ -128,12 +127,12 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7); /* Fundo mais escuro para o texto */
   color: #fff;
-  padding: 15px;
+  padding: 20px;
   text-align: center;
   transform: translateY(100%);
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
 .card:hover .info {
@@ -142,25 +141,26 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
 
 .info h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .info p {
   margin: 10px 0 0;
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 /* Estilo do Swiper */
 .custom-swiper {
-  padding: 20px 0;
+  padding: 40px 0;
 }
 
 .swiper-slide {
   overflow: visible;
-  padding: 15px;
-  transition: transform 0.4s ease;
+  padding: 20px;
+  transition: transform 0.3s ease;
 }
 
 .swiper-slide:hover {
