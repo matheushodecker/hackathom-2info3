@@ -9,10 +9,10 @@ const homesStore = useHomesStore();
 
 // Computa as casas adicionadas recentemente
 const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máximo 9 casas recentes
-
 </script>
 
 <template>
+  <div class="background">
   <section id="img"></section>
   <div>
     <h2 class="txt-inicio">Adicionadas recentemente</h2>
@@ -25,10 +25,8 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
       pagination
       class="custom-swiper"
     >
-      <!-- Slides das casas adicionadas -->
       <SwiperSlide v-for="home in recentHomes" :key="home.id">
-        <div class="card">
-          <!-- Link para detalhes da casa -->
+        <div class="card card-recent">
           <router-link :to="{ path: `/rent/${home.id}` }">
             <img :src="home.foto1" :alt="home.address" class="card-img" />
           </router-link>
@@ -51,9 +49,8 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
     pagination
     class="custom-swiper"
   >
-    <!-- Slides -->
     <SwiperSlide v-for="n in 9" :key="n">
-      <div class="card">
+      <div class="card card-featured">
         <a href="/rent">
           <img
             src="/src/assets/img/casa-luxo-Casa-Americana-sp-1-Olaa-Arquitetos-1024x683.jpg"
@@ -68,58 +65,60 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
       </div>
     </SwiperSlide>
   </Swiper>
+</div>
 </template>
 
 <style scoped>
-/* Texto de introdução estilizado */
+.background{
+  background-color: #000;
+}
 .txt-inicio {
-  color: #fff;
-  margin: 30px 0;
+  color: #000; /* Dourado */
+  margin: 30px auto;
   padding: 20px;
-  font-size: 26pt;
+  font-size: 24pt;
   font-family: 'Libre Bodoni', serif;
-  background: linear-gradient(90deg, #3a6186, #89253e);
-  border-radius: 35px;
+  background: #F2C14E; /* Fundo preto */
+  border-radius: 25px;
   font-weight: bold;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  width: fit-content;
 }
 
-/* Fundo da seção de imagem */
 #img {
   background-image: url(/src/assets/img/casa-de-luxo-7-1.jpg);
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 95vh;
   position: relative;
 }
 
-/* Estilizando os cartões */
-.card {
+.card-recent, .card-featured {
   position: relative;
-  width: 320px; /* Aumenta o tamanho dos cartões */
-  height: 380px; /* Aumenta a altura das imagens */
+  width: 320px;
+  height: 380px;
   overflow: hidden;
   border-radius: 15px;
-  background: #fff;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  background: #000;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border: 3px solid #F2C14E;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px); /* Eleva o card suavemente */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+.card-recent:hover, .card-featured:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
 .card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  border-bottom: 4px solid #F2C14E;
 }
 
 .card-img:hover {
-  transform: scale(1.05); /* Aumenta a imagem de forma suave ao passar o mouse */
+  transform: scale(1.05);
 }
 
 .info {
@@ -127,15 +126,15 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Fundo mais escuro para o texto */
-  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  color: #F2C14E;
   padding: 20px;
   text-align: center;
   transform: translateY(100%);
   transition: transform 0.3s ease;
 }
 
-.card:hover .info {
+.card-recent:hover .info, .card-featured:hover .info {
   transform: translateY(0);
 }
 
@@ -143,7 +142,7 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   margin: 0;
   font-size: 22px;
   font-weight: bold;
-  letter-spacing: 1px;
+  color: #F2C14E;
 }
 
 .info p {
@@ -152,9 +151,11 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
   line-height: 1.5;
 }
 
-/* Estilo do Swiper */
 .custom-swiper {
   padding: 40px 0;
+  background: #000;
+  border-radius: 0;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.6);
 }
 
 .swiper-slide {
@@ -168,10 +169,10 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)); // Exibe no máx
 }
 
 .swiper-pagination-bullet {
-  background: #89253e;
+  background: #9B1B30;
 }
 
 .swiper-pagination-bullet-active {
-  background: #3a6186;
+  background: #F2C14E;
 }
 </style>
