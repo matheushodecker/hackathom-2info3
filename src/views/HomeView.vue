@@ -136,7 +136,7 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)) // Exibe no máxi
   text-align: center;
   transform: translateY(100%);
   transition: transform 0.3s ease;
-}
+  }
 
 .card-recent:hover .info,
 .card-featured:hover .info {
@@ -144,16 +144,17 @@ const recentHomes = computed(() => homesStore.homes.slice(-9)) // Exibe no máxi
 }
 
 .info h3 {
-  margin: 0;
   font-size: 22px;
   font-weight: bold;
   color: #f2c14e;
 }
 
 .info p {
-  margin: 10px 0 0;
   font-size: 18px;
   line-height: 1.5;
+}
+.info p,h3{
+  margin-right: 40px;
 }
 
 .custom-swiper {
