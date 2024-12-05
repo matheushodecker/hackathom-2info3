@@ -7,7 +7,6 @@
       <div class="grid-container">
         <div class="grid-item" v-for="home in preHomes" :key="home.id">
           <div v-if="home.foto1 && home.address" class="card">
-            <!-- Atualizado o link para redirecionar para a rota dinâmica -->
             <router-link :to="{ path: `/rent/${home.id}` }" class="router-link">
               <img :src="home.foto1" :alt="home.address" class="card-img" />
               <div class="info">
@@ -15,8 +14,10 @@
                 <p>{{ home.address.split(',').slice(1).join(',').trim() }}</p>
                 <p>👤 4 hóspedes</p>
                 <p>⭐ 4,8</p>
-                <p>Preço por noite</p>
-                <p>R$ {{ (home.price / 30).toFixed(2) }}</p>
+                <div class="price-container">
+                  <span>Preço por noite:</span>
+                  <span class="price">R$ {{ (home.price / 30).toFixed(2) }}</span>
+                </div>
               </div>
             </router-link>
           </div>
@@ -51,6 +52,7 @@ export default {
 .background {
   background-color: #000;
 }
+
 /* Título */
 .titulo {
   padding-top: 70px;
@@ -64,7 +66,7 @@ export default {
   padding: 20px;
   font-size: 24pt;
   font-family: 'Libre Bodoni', serif;
-  background: #f2c14e; /* Fundo preto */
+  background: #f2c14e;
   border-radius: 25px;
   font-weight: bold;
   text-align: center;
@@ -77,7 +79,7 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   padding: 40px;
-  background: #000; /* Fundo preto */
+  background: #000;
   border-radius: 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -94,12 +96,12 @@ export default {
   height: 580px;
   overflow: hidden;
   border-radius: 20px;
-  background: #000; /* Fundo preto */
+  background: #000;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
-  border: 3px solid #f2c14e; /* Dourado */
+  border: 3px solid #f2c14e;
 }
 
 .card:hover {
@@ -135,7 +137,7 @@ export default {
 }
 
 .card:hover .info {
-  background: rgba(0, 0, 0, 1); /* Fundo preto ao passar o mouse */
+  background: rgba(0, 0, 0, 1);
 }
 
 .info h3 {
@@ -148,6 +150,18 @@ export default {
   margin: 0;
   font-size: 16px;
   line-height: 1.6;
+}
+
+.price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.price {
+  font-weight: bold;
+  color: #f39c12; /* Cor de destaque */
 }
 
 .router-link {
