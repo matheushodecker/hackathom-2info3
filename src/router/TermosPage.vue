@@ -1,7 +1,5 @@
 <template>
-  <div class="modal" v-if="isVisible">
-    <div class="modal-content">
-      <div class="pagina-termos">
+    <div class="pagina-termos">
       <div class="conteudo-termos">
         <header class="header-termos">
           <h1>Termos de Uso</h1>
@@ -91,76 +89,24 @@
         </section>
       </div>
     </div>
-      <button @click="acceptTerms" class="close">Aceitar</button>
-    </div>
-  </div>
-</template>
-
-<script>
-export default {
-  props: {
-    isVisible: {
-      type: Boolean,
-      required: true
-    }
-  },
-  methods: {
-    closeModal() {
-      this.$emit('close')
-    },
-    acceptTerms() {
-      this.$emit('accept')
-      this.closeModal()
-    }
+  </template>
+  
+  <style scoped>
+  .pagina-termos {
+    background-color: #f6f6f6;
+    padding: 50px 20px;
   }
-}
-</script>
-
-<style scoped>
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  max-height: 80vh; /* Para evitar que o modal exceda a altura da tela */
-}
-
-.close {
-  cursor: pointer;
-  font-size: 24px;
-  width: 100%;
-  padding: 12px;
-  background-color: #007bff;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
- 
-}
   
   .conteudo-termos {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-
-
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   }
   
   .header-termos {
@@ -191,4 +137,5 @@ export default {
   strong {
     color: #0056b3;
   }
-</style>
+  </style>
+  

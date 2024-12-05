@@ -1,51 +1,53 @@
 <template>
-  <div class="voltar">
-    <a href="/alugar"> <img src="../assets/img/icons8-voltar-24.png" alt="voltar" /></a>
-  </div>
-
-  <div class="gridall">
-    <div class="grid">
-      <div class="big-square">foto</div>
-      <div class="small-square">foto</div>
-      <div class="small-square">foto</div>
-      <div class="small-square">foto</div>
-      <div class="small-square">foto</div>
+  <div>
+    <div class="voltar">
+      <a href="/alugar">
+        <img src="../assets/img/icons8-voltar-24.png" alt="voltar" />
+      </a>
     </div>
-  </div>
 
-  <RouterView />
-
-  <div class="prevent">
-    <div class="position">
-      <div class="details">
-        <h2>{{ listing.name }}, {{ listing.city }}, {{ listing.country }}</h2>
-        <div class="host">
-          <img src="" alt="Foto do anfitrião" />
-          <span>Anfitriã(ão): {{ listing.hostName }}</span>
+    <div class="gridall">
+      <div class="grid">
+        <div class="big-square">
+          <img :src="house.foto1" alt="Imagem principal" />
         </div>
-        <div class="booking">
-          <h3>Preço por noite</h3>
-          <div class="dates">
-            <div class="check-in">
-              <label for="check-in">CHECK-IN</label>
-              <input type="date" id="check-in" v-model="checkInDate" />
-            </div>
-            <div class="check-out">
-              <label for="check-out">CHECK-OUT</label>
-              <input type="date" id="check-out" v-model="checkOutDate" />
-            </div>
+        <div class="small-square" v-for="(foto, index) in [house.foto2, house.foto3, house.foto4, house.foto5]" :key="index">
+          <img :src="foto" alt="Imagem adicional" v-if="foto" />
+        </div>
+      </div>
+    </div>
+
+    <div class="prevent">
+      <div class="position">
+        <div class="details">
+          <h2>{{ house.address }}</h2>
+          <div class="host">
+            <img src="" alt="Foto do anfitrião" />
+            <span>Anfitriã(ão): {{ house.hostName }}</span>
           </div>
-          <div class="guests">
-            <label for="guests">HÓSPEDES</label>
-            <select id="guests" v-model.number="numGuests">
-              <option value="1">1 hóspede</option>
-              <option value="2">2 hóspedes</option>
-              <option value="3">3 hóspedes</option>
-              <option value="4">4 hóspedes</option>
-            </select>
+          <div class="booking">
+            <h3>Preço: R$ {{ house.price }}</h3>
+            <div class="dates">
+              <div class="check-in">
+                <label for="check-in">CHECK-IN</label>
+                <input type="date" id="check-in" v-model="checkInDate" />
+              </div>
+              <div class="check-out">
+                <label for="check-out">CHECK-OUT</label>
+                <input type="date" id="check-out" v-model="checkOutDate" />
+              </div>
+            </div>
+            <div class="guests">
+              <label for="guests">HÓSPEDES</label>
+              <select id="guests" v-model.number="numGuests">
+                <option v-for="n in 10" :key="n" :value="n">
+                  {{ n }} hóspede{{ n > 1 ? 's' : '' }}
+                </option>
+              </select>
+            </div>
+            <button @click="bookHouse">Reservar</button>
+            <div v-if="message" class="message">{{ message }}</div>
           </div>
-          <button @click="bookListing">Reservar</button>
-          <div v-if="message" class="message">{{ message }}</div>
         </div>
       </div>
     </div>
@@ -53,34 +55,43 @@
 </template>
 
 <script>
+import { usePreHomesStore } from "@/stores/preHomes"; // Changed import from reservations to preHomes store
+import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
+
 export default {
-  data() {
+  setup() {
+    const route = useRoute();
+    const preHomesStore = usePreHomesStore(); // Changed to preHomesStore
+
+    const house = computed(() => preHomesStore.preHomes.find(home => home.id === parseInt(route.params.id))); // Changed to get home by id from preHomesStore
+    const checkInDate = ref("");
+    const checkOutDate = ref("");
+    const numGuests = ref(1);
+    const message = ref("");
+
+    const bookHouse = () => {
+      if (!checkInDate.value || !checkOutDate.value) {
+        message.value = "Por favor, selecione as datas de check-in e check-out.";
+        return;
+      }
+      // Since there's no reservation functionality in preHomesStore, add logic here if needed
+      message.value = "Sua reserva foi realizada com sucesso!";
+    };
+
     return {
-      listing: {
-        name: 'Nome da casa',
-        city: 'Cidade',
-        country: 'País',
-        hostName: 'Nome anfitrião'
-      },
-      checkInDate: '',
-      checkOutDate: '',
-      numGuests: 1,
-      message: '' // Adicionando a mensagem aqui
-    }
+      house,
+      checkInDate,
+      checkOutDate,
+      numGuests,
+      message,
+      bookHouse,
+    };
   },
-  methods: {
-    bookListing() {
-      // Lógica para reservar a acomodação
-      console.log('Reservando acomodação...')
-      this.message = 'Sua reserva foi realizada com sucesso!' // Atualiza a mensagem
-    }
-  }
-}
+};
 </script>
 
-<script setup>
-import { RouterView } from 'vue-router'
-</script>
+
 <style scoped>
 .voltar {
   max-width: 24px;

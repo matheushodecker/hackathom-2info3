@@ -2,13 +2,13 @@
   <div>
     <main>
       <div class="titulo">
-        <h2 class="txt-inicio">Recomendações de Casa</h2>
+        <h2 class="txt-inicio">Recomendações de Casas Pré-Selecionadas</h2>
       </div>
       <div class="grid-container">
-        <div class="grid-item" v-for="home in homes" :key="home.id">
-          <div v-if="home.imageUrl && home.address" class="card">
+        <div class="grid-item" v-for="home in preHomes" :key="home.id">
+          <div v-if="home.foto1 && home.address" class="card">
             <router-link :to="{ path: '/rent' }">
-              <img :src="home.imageUrl" :alt="home.address" class="card-img" />
+              <img :src="home.foto1" :alt="home.address" class="card-img" />
               <div class="info">
                 <h3>{{ home.address.split(',')[0] }}</h3>
                 <p>{{ home.address.split(',').slice(1).join(',').trim() }}</p>
@@ -27,24 +27,23 @@
 </template>
 
 <script>
-import { useHomesStore } from '@/stores/homes'
-import { ref, onMounted } from 'vue'
+import { usePreHomesStore } from '@/stores/preHomes'; // Importa a nova store
+import { ref, onMounted } from 'vue';
 
 export default {
   setup() {
-    const homesStore = useHomesStore() // Store do Pinia
-    const homes = ref([]) // Estado local para as casas
+    const preHomesStore = usePreHomesStore(); // Acessa a nova store do Pinia
+    const preHomes = ref([]); // Estado local para as casas pré-selecionadas
 
     onMounted(() => {
-      const fetchedHomes = homesStore.getHomes() // Obtém as casas do store
-      homes.value = fetchedHomes || [] // Garante que homes seja um array, mesmo se vazio
-    })
+      preHomes.value = preHomesStore.preHomes; // Obtém as casas pré-selecionadas da store
+    });
 
     return {
-      homes
-    }
-  }
-}
+      preHomes,
+    };
+  },
+};
 </script>
 
 <style scoped>
