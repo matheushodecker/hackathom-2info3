@@ -121,7 +121,6 @@ export default {
 }
 
 .info {
-  padding: 25px 20px;
   background: rgba(0, 0, 0, 0.8); /* Fundo semitransparente */
   color: #f2c14e; /* Dourado */
   text-align: center;

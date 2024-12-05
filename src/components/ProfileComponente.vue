@@ -77,6 +77,7 @@ export default {
   height: 170px;
   border-radius: 50%;
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .info {
@@ -92,7 +93,7 @@ button {
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 button:disabled {

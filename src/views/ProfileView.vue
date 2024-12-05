@@ -131,7 +131,10 @@ export default {
 }
 .Fixed{
 height: 100%;
-width: 30%;
+width: 60%;
 padding-left: 5rem;
+margin-top: -6px;
+border: 1px solid black;
+
 }
 </style>
