@@ -1,6 +1,6 @@
 <template>
   <div class="profile-page">
-    <ProfileComponente
+    <ProfileComponente class="Fixed"
       :user="user"
       :isEditing="isEditing"
       :username="username"
@@ -122,9 +122,16 @@ export default {
 
 <style scoped>
 .profile-page {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  margin-top: 5%  ;
+}
+.Fixed{
+height: 100%;
+width: 30%;
+padding-left: 5rem;
 }
 </style>
