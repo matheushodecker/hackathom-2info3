@@ -1,6 +1,6 @@
 <template>
   <div class="profile-info">
-    <h2>Perfil do Usuário</h2>
+    
     <div v-if="user">
       <img :src="user.profilePicture" alt="Foto de Perfil" class="profile-picture" />
       <div class="info" v-if="!isEditing">
